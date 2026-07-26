@@ -200,47 +200,87 @@ Follow `references/output-template.md`.
 1. Meta — window, post count, cap hit?
 2. Themes — 3–7 bullets
 3. Opinions / takes — cross-cutting views across the window
-4. **Notable posts** — see dedicated rules below (required)
+4. **Notable posts** — **must** use the `summarize-x-post` skill (see below)
 5. Products / launches / people
 6. Tone — short paragraph
 
 Language: match the user (Chinese if they write Chinese).
 
-#### Notable posts — required format
+#### Notable posts — **must use `summarize-x-post`**
 
-Pick **3–8** high-signal posts (or all posts if fewer than 3). For **each** post, write a real summary of **that post’s** content and viewpoint — **not** a bare title and **not** a link-only line.
+A short paraphrase of the keyword-search snippet is **not enough**.
 
-Each item must include:
+For each notable post you **must** run the **`summarize-x-post`** workflow
+(read `.grok/skills/summarize-x-post/SKILL.md` and its
+`references/output-template.md` if needed):
 
-1. **Viewpoint / content summary** (2–5 sentences, or several dense bullets): what they argued, announced, or observed **in this post**; include key claims, product names, numbers, or caveats when present.
-2. **Link** on its own line or clearly labeled: `链接：<url>` / `URL: <url>` when the tool provides one.
+1. Parse `post_id` from the status URL (digits after `/status/`).
+2. Call `x_thread_fetch` with that `post_id` (main post + parent/replies).
+3. Summarize **main post** (2–6 sentences + key points).
+4. Extract **high-signal reply viewpoints** (who + take + link; typically 3–8 replies; skip emoji/spam).
+5. Add a **one-line takeaway** for post + discussion.
+
+**Selection:** pick **3–5** high-signal posts per builder per window
+(or all posts if fewer than 3). Prefer:
+
+- Original theses / long threads / product launches
+- High engagement or dense technical content
+- Not pure RTs of others without added comment (unless the quote-comment is the point)
+
+**Per-item structure inside `### Notable posts`:** embed a compact
+`summarize-x-post` block (same sections as that skill’s template):
+
+```markdown
+### Notable posts
+
+> 以下每条均按 skill `summarize-x-post`：`x_thread_fetch` 主帖 + 高信号回复。
+
+#### 1. **<短标题>**
+
+**链接：** https://x.com/<handle>/status/<id>  
+**时间 / 互动（如有）：** ...
+
+##### 主帖在说什么
+
+<2–6 句：主张、论据、产品名、数字、限定条件；勿只写一句空话>
+
+##### 要点
+
+- ...
+- ...
+
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@handle** | <1–4 句实质观点，非 “agree”> | [post](url) |
+
+（无回复上下文时写明「未获取到回复上下文」。）
+
+##### 一句话概括
+
+<一句：主帖 + 讨论的核心>
+```
+
+**Optional artifact:** also write full post digests to
+`X/posts/<post_id>.md` when useful; still **embed** the summary in
+`X/<handle>.md` so the builder file stands alone.
 
 **Bad (do not write this):**
 
 ```markdown
 1. 谈到了 AI agent — https://x.com/...
-2. 发布了新产品 — https://x.com/...
+2. **Opus 5**  
+   发布了 Opus 5，很好。  
+   链接：https://x.com/...
 ```
 
-**Good:**
+**Rules:**
 
-```markdown
-1. **主题短标题（可选）**  
-   他认为当前 agent 失败的主因不是模型智力，而是脚手架过重、上下文没有结构化；主张用更薄的 system prompt + 更厚的项目上下文。还举例说明砍掉 80% prompt 后任务完成率反而上升。  
-   链接：https://x.com/user/status/123
-
-2. **...**  
-   ...  
-   链接：https://x.com/user/status/456
-```
-
-Rules:
-
-- Summarize **the individual post** (and its thread only if you actually fetched thread context).
-- Do **not** invent quotes or details absent from the fetched text.
-- Do **not** dump raw post text as the whole “summary”; paraphrase and structure the take.
-- Short posts (one joke, one emoji reaction): one clear sentence of what it signals is enough, still plus URL.
-- If a “notable” item has no URL from tools, say so; prefer items that have URLs.
+- **No notable item without `x_thread_fetch`** (unless fetch fails twice — then note the error and fall back to search-snippet summary labeled `（仅列表摘要，thread 拉取失败）`).
+- Do **not** invent replies or quotes.
+- Parallelize: after selecting notable IDs for a handle, you may `x_thread_fetch` several posts concurrently.
+- Cap: still max **50** list posts per handle from search; deep-summarize only the 3–5 notables.
 
 ### Step 5 — Update state **per successful handle**
 
@@ -301,15 +341,22 @@ If the user asks for one person or a custom range:
 ## Tool cheat sheet
 
 ```text
+# List posts in window
 x_keyword_search
   query: from:karpathy since:2026-07-26 until:2026-07-28
   limit: 10
   mode: Latest
 
+# Deep-summarize each notable (required) — same as skill summarize-x-post
+x_thread_fetch
+  post_id: 2079610838143623371
+
 x_user_search
   query: karpathy
   count: 1
 ```
+
+Related skill: **`summarize-x-post`** (`.grok/skills/summarize-x-post/SKILL.md`) — single post + discussion. This skill **calls that method** for every Notable item.
 
 Do **not** scrape x.com HTML as the primary method.
 
@@ -334,7 +381,8 @@ Do **not** scrape x.com HTML as the primary method.
 - [ ] Builders parsed from `builders.md`
 - [ ] State loaded; v1 migrated to v2 if needed
 - [ ] **Each** builder has its own window (incremental or 30-day)
-- [ ] Posts fetched with pagination (cap 50)
+- [ ] Posts listed with pagination (cap 50)
+- [ ] Each Notable post ran **`summarize-x-post`** / `x_thread_fetch` (not list-snippet only)
 - [ ] `X/<handle>.md` written/prepended for each attempted handle
 - [ ] `last_fetched_at` updated **only** for successes (per handle)
 - [ ] `X/README.md` updated

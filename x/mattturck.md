@@ -10,69 +10,165 @@
 
 ## Window: 2026-06-26 → 2026-07-26
 
-- **Fetched at:** 2026-07-26T19:28:25Z
+- **Fetched at:** 2026-07-26T20:15:00Z
 - **Posts in window (fetched):** 50（cap 50: **yes**，窗口内实际更多）
-- **Mode:** 30-day backfill
+- **Mode:** 30-day backfill (full rewrite; Notable = summarize-x-post)
 - **Cursor:** per-builder（本 handle 独立窗口；非全局 job cursor）
+- **Notable method:** `summarize-x-post` (`x_thread_fetch` per item)
 
 ### Themes
 
-- **MAD Podcast / 芯片与推理速度**：与 Cerebras CEO Andrew Feldman 长访谈（wafer → inference 瓶颈）
-- **Model routing 周**：Stripe–OpenRouter 传闻、Cursor/Runway Router、云厂商路由层
-- **VC 梗图/短视频**：Anthropic SPV、FDE 压力、bootstrapped vs 烧算力 neo-lab
-- **递归自研究的讽刺**：顶级研究者正在研究自己失业
-- 足球/世界杯相关讨论与大量短回复
+- **Cerebras / 快速推理长访谈**：从 wafer 讲到芯片业围绕 inference speed 重组
+- **Model routing 一周**：OpenRouter 传闻、Cursor/Runway Router、各云/数据平台的「router」同名异物
+- VC 文化吐槽：bootstrapped 盈利 vs 烧算力 neo-lab；Anthropic SPV 诱惑；recursive auto-research 的讽刺
 
 ### Opinions and takes
 
-- 芯片产业正围绕 **inference speed / tokens per second per user** 重组
-- 「Big week in model routing」：路由层在应用与云侧同时爆发
-- 递归 auto-research 的反讽：顶尖 AI 研究者在研究自己出局的路径
-- 语气上多为行业观察 + 幽默，少长篇政策论战（足球帖除外）
-- 对「AI 偷工作」叙事：更欣赏「AI 让我 10× 更好」的产品叙事
+- 推理速度与 tokens/sec/user 成为新瓶颈叙事（对标宽带/Netflix 类比）
+- Routing 层正在成为横跨工具、创意与 infra 的默认组件
+- 顶级研究者在「递归自动研究」中研究掉自己的工作——被低估的反讽
+- 用 meme 与短视频消化 VC 圈荒诞
 
 ### Notable posts
 
-1. **Cerebras 长访谈：推理速度重塑芯片产业**  
-   与 Cerebras CEO Andrew Feldman 从「什么是 wafer」讲起，铺到整个芯片业为何围绕 inference speed 重组：tokens/s/user、GPU/TPU/Trainium/ASIC 地图、Nvidia–Groq 快速推理战、HBM/CoWoS 瓶颈、agent 拉高 CPU 需求、SRAM vs HBM、wafer-scale、prefill/decode、OpenAI 大功率推理单、CUDA 护城河等。定位为「fast inference, AI chips, next compute bottleneck」参考对话。  
-   链接：https://x.com/mattturck/status/2080333707483725876
+> 以下每条均按 skill **`summarize-x-post`**：`x_thread_fetch` 主帖 + 高信号回复。
 
-2. **Chip landscape 101 短视频**  
-   从长访谈剪出芯片地图速览（CPU/GPU/NVIDIA/AMD/TPU/Trainium/Cerebras 等），用短视频降低门槛，把播客内容产品化分发。  
-   链接：https://x.com/mattturck/status/2081131761686184333
+#### 1. **Cerebras 长谈：芯片业为推理速度重组**
 
-3. **Model routing 大周**  
-   点名同周密集信号：Stripe 传闻以约 $10B 收购 OpenRouter、Cursor Router 周三发布、Runway Router 昨日发布，并提到 Databricks、Vercel、Cloudflare、Dataiku、AWS、Google 等也有「router」类产品——虽术语同、底层差异大，但路由层已成行业主题周。  
-   链接：https://x.com/mattturck/status/2080645582209663049
+**链接：** https://x.com/mattturck/status/2080333707483725876  
+**时间 / 互动（如有）：** Thu, 23 Jul 2026 · Likes≈39, Bookmarks≈39, Views≈1.2万 · ~73min 视频
 
-4. **VC 与 Anthropic SPV 三股诱惑**  
-   配图吐槽：VC 想抵制「IPO 前通过 SPV 买三股 Anthropic 好自称 early investor」的诱惑——调侃二级/准二级叙事对身份的拉扯。  
-   链接：https://x.com/mattturck/status/2081098045211439136
+##### 主帖在说什么
 
-5. **递归 auto-research 的反讽**  
-   指出少被讨论的矛盾：世界顶级 AI 研究者正通过研究「递归自动研究」为自己铺退出路径——把 RSI/auto-research 叙事压成一句行业反讽。  
-   链接：https://x.com/mattturck/status/2080738638065729741
+发布与 Cerebras CEO **Andrew Feldman** 的 MAD 对话：从「什么是 wafer」铺到整个芯片业为何围绕 **inference speed** 重组。目录覆盖 tokens/sec/user、ASIC vs GPU/TPU/Trainium、Nvidia/Groq 快推理战、主权 AI 与电力、HBM/CoWoS/3nm 瓶颈、agent 带来的 CPU 需求、SRAM vs HBM、wafer-scale、prefill/decode、「100 部高清电影」式上下文问题、推理如何改变 RL、OpenAI 750MW 交易、CUDA 护城河、以及「今天的模型将是你用过最差的」等。
 
-6. **$1M→$100M 与 FDE 压力 meme**  
-   短视频梗：创始人被 VC 追问为何不能今年从 $1M 长到 $100M、是否考虑招 FDE——压缩当下 AI 创业的增长与交付预期焦虑。  
-   链接：https://x.com/mattturck/status/2080041023158268006
+##### 要点
 
-7. **Bootstrap 盈利 vs 烧算力 neo-lab**  
-   Meme：VC 面对「为可盈利 bootstrap 业务融资」而非「烧数亿算力做 neo-lab」时的表情管理——调侃当下资本对算力故事的偏好。  
-   链接：https://x.com/mattturck/status/2080451010439352711
+- 结构：入门物理 → 产业地图 → Cerebras 深技术故事 → 商业模式
+- 核心命题：速度成为 AI 瓶颈；解码/内存路径重塑架构选择
+- 分发：YouTube / Spotify / Apple 全平台
 
-8. **播客多平台分发**  
-   补充同一 Cerebras 对话已上 Spotify、Apple Podcasts 与 YouTube，完成长内容的跨平台分发闭环。  
-   链接：https://x.com/mattturck/status/2080333711640285549
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@mattturck**（自回） | 附跨平台收听链接，定位为「reference conversation」。 | [post](https://x.com/mattturck/status/2080333711640285549) |
+| **@AGTPinsights** | 追问何种新设计让企业「用 AI 而不把数据交给云」——主权/本地部署视角。 | [post](https://x.com/AGTPinsights/status/2080365334473683041) |
+
+##### 一句话概括
+
+一档把 wafer-scale 与推理瓶颈做成系统课的参考访谈，配套全平台分发。
+
+#### 2. **Model routing 大周**
+
+**链接：** https://x.com/mattturck/status/2080645582209663049  
+**时间 / 互动（如有）：** Fri, 24 Jul 2026 · Likes≈42, Bookmarks≈30, Views≈1.7万
+
+##### 主帖在说什么
+
+盘点「routing 大周」：Stripe 传闻 **100 亿美元收购 OpenRouter**；**Cursor Router** 周三发布；**Runway Router** 昨天发布；并点名 Databricks、Vercel、Cloudflare、Dataiku、AWS、Google 都有「router」——括号强调 **同词异物**。
+
+##### 要点
+
+- 资本事件（传闻）+ 产品发布同周共振
+- 命名泛滥：router 不等于同一产品类别
+- 暗示：多模型编排成为默认中间层
+
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@sonicaghi** | 指向 Kong 更早的开源 AI gateway——「谁才是 OG」的品类溯源。 | [post](https://x.com/sonicaghi/status/2081010000147652803) |
+| **@kurt** | 以反讽帖接龙「居然找不到 router」——市场噪音 vs 真实需求。 | [post](https://x.com/kurt/status/2080661117760680256) |
+| **@mmurph** | 「对某些人是大周，对 OG OpenRouter 是日常」——先发者心态。 | [post](https://x.com/mmurph/status/2081017870373499250) |
+
+##### 一句话概括
+
+一周内收购传闻 + 多产品同名 Router，Matt 提醒：词同、栈不同。
+
+#### 3. **递归自动研究：研究者研究掉自己的工作**
+
+**链接：** https://x.com/mattturck/status/2080738638065729741  
+**时间 / 互动（如有）：** Fri, 24 Jul 2026 · Likes≈23, Replies≈12
+
+##### 主帖在说什么
+
+一句观察：被低估的反讽——世界顶级 AI 研究者在建造 **recursive auto-research** 时，正研究着让自己岗位消失的路径。
+
+##### 要点
+
+- 主题：自动化科研 / RSI 对研究者劳动的含义
+- 语气：冷静指出 irony，非煽情末日论
+
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@jeremyjordan** | 若把职业看成无限问题集，自动化当前工作是满足感而非讽刺；只有「不会再有重要问题」才讽刺——成长心态 + 无限游戏。 | [post](https://x.com/jeremyjordan/status/2080774167230636168) |
+| **@DoggyCapital** | 股权会在不再被需要时提供安慰——资本缓冲视角。 | [post](https://x.com/DoggyCapital/status/2080739463416717634) |
+| **@jon3k** | 从不「保护岗位」；要做酷东西、去能创造价值的地方。 | [post](https://x.com/jon3k/status/2080795389091869045) |
+
+##### 一句话概括
+
+一句 irony 触发「无限游戏 vs 岗位保护 vs 股权缓冲」的职业哲学讨论。
+
+#### 4. **Chip landscape 101 短片**
+
+**链接：** https://x.com/mattturck/status/2081131761686184333  
+**时间 / 互动（如有）：** Sat, 25 Jul 2026 · Likes≈17, Views≈4.3k
+
+##### 主帖在说什么
+
+从 Cerebras 长谈中剪出 **Chip landscape 101** 短视频：CPU、GPU、NVIDIA、AMD、TPU、Trainium、Cerebras 等地图式导览，降低长访谈门槛。
+
+##### 要点
+
+- 内容策略：长内容 → 短切入口
+- 受众：需要地图而非全文的从业者/投资者
+
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@subramanya** | 追问何种 workload 会让答案从 GPU 翻转到 **wafer-scale first**——架构选型阈值。 | [post](https://x.com/subramanya/status/2081136440466165875) |
+
+##### 一句话概括
+
+用 101 短片导流长访谈；评论直接问 workload 切换条件。
+
+#### 5. **VC 看到盈利 bootstrapped：迷之表情**
+
+**链接：** https://x.com/mattturck/status/2080451010439352711  
+**时间 / 互动（如有）：** Fri, 24 Jul 2026 · Likes≈38 · 短视频 meme
+
+##### 主帖在说什么
+
+Meme 视频标题：**当创始人为盈利的 bootstrapped 生意融资，而不是烧几亿美元算力做 neo-lab 时，VC 的反应**——自嘲圈内激励偏向烧钱训练故事。
+
+##### 要点
+
+- 讽刺：盈利被当成异类，算力烧钱才是默认叙事
+- 身份：FirstMark VC 自嘲，增强可信
+
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@zeeg** | 「那些（盈利 bootstrapped）还存在吗？」——夸张确认荒诞。 | [post](https://x.com/zeeg/status/2080451159094165749) |
+| **@MarcusSpillane** | 「没有什么比留存收益更能吓到 Series B deck review」——会计健康 vs 增长故事。 | [post](https://x.com/MarcusSpillane/status/2080484855477916039) |
+
+##### 一句话概括
+
+VC 自嘲：圈内更懂「烧算力叙事」而不是「盈利无聊」。
 
 ### Products, launches, people
 
-- **MAD Podcast** × **Andrew Feldman** / **Cerebras**
-- 行业：OpenRouter、Cursor Router、Runway Router、Databricks/Vercel/Cloudflare/AWS/Google 路由等
-- FirstMark / MAD Landscape 语境
+- **MAD Podcast** × Cerebras / Andrew Feldman
+- Model routing：OpenRouter、Cursor Router、Runway Router 及云厂同名品
+- FirstMark / Data Driven NYC / MAD Landscape 身份背景
 
 ### Tone
 
-VC + 播客主持人：主力内容是产业地图与长访谈推广；穿插高密度 meme 与短回复；足球话题时更情绪化、多线程争论。
+VC-播客主：长内容 + 产业地图 + meme；短回复多，高信号集中在播客与周观察帖。
 
 ---

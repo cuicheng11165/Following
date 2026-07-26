@@ -160,4 +160,6 @@ URL form: `https://x.com/<handle>/status/<post_id>`
 ## Related
 
 - Batch / per-builder digests → skill `summarize-x-builders`  
-- This skill is **single post + discussion**, not a monthly builder rollup  
+- **`summarize-x-builders` must call this skill’s workflow** for every **Notable post** (list-snippet one-liners are not enough).  
+- This skill alone is **single post + discussion**, not a monthly builder rollup  
+

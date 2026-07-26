@@ -3,82 +3,191 @@
 | Field | Value |
 |-------|-------|
 | Profile | https://x.com/adityaag |
-| Bio | General Partner @SouthPkCommons, Co-Founder @Bevel_Health | Ex: Early Eng @facebook, CTO @Dropbox, Board @Flipkart | Optimist, Builder, Dad |
+| Bio | General Partner @SouthPkCommons, Co-Founder @Bevel_Health \| Ex: Early Eng @facebook, CTO @Dropbox, Board @Flipkart \| Optimist, Builder, Dad |
 | Source list | builders.md |
 
 ---
 
 ## Window: 2026-06-26 → 2026-07-26
 
-- **Fetched at:** 2026-07-26T19:28:25Z
+- **Fetched at:** 2026-07-26T20:15:00Z
 - **Posts in window (fetched):** 41（cap 50: no；窗口已覆盖至约 2026-06-26）
 - **Mode:** 30-day backfill
+- **Cursor:** per-builder（本 run 不更新 state）
+- **Notable method:** `summarize-x-post`（`x_thread_fetch` per item）
 
 ### Themes
 
 - 创业文化：Culture eats strategy；创始人/早期团队/早期产品 DNA
-- South Park Commons Founder Fellowship：极大野心、硬科技/原子级建造者
-- AI harness 痛点：memory loss、compaction、skills 存信息方式
+- South Park Commons Founder Fellowship：极大野心、硬科技/原子级建造者（截止 Aug 2）
+- AI harness 痛点：memory loss、compaction、skills 存信息方式、可解释性
 - 模型经济学：付费 Fable vs 免费/开源替代；垂类 domain-specific 模型
-- AI 加速写作文化：为了喂模型，会议与 board notes 暴增
+- 云端 agent 栈愿景：任意模型 × harness × 全链路 tracing × 递归改进
 - 家庭、国家认同、足球（USMNT）与个人叙事
 
 ### Opinions and takes
 
-- 创业文化来自三块：创始人、早期团队、早期产品的 personality/DNA；既有 top-down 也有涌现；人工压制涌现或意见碎片化都会糟；可多元背景但应共享公司文化（拒绝被拖入 DEI 论战）
-- 若东西很有价值但让人用就会被复刻，那也许一开始就没那么有价值
-- 正在系统层面 switch off Fable：有好的免费替代时为何付高价？
-- 雄心边缘的人会收到更多 No；自己一天被说 No 五次仍属常态
-- AI 加速写作文化：为了喂模型，会议记录/board notes 等显著变多
-- Memory loss / compaction / 差的可解释性仍是 harness 大问题；skills 作为信息存储方式或是根因之一
-- 预测：云端跑全 agent、任选模型（frontier/OSS/中美）、任选 harness、完整 tracing、递归改进——希望更快到来
-- Cognition/Cursor 等基于 OSS 的近前沿 coding 模型预示 6 个月内高价值垂类会普遍出现 domain-specific 模型；long open + post-trained
-- 浪费时代的方式：忽略世界已变、还想用纯软件吃五年前同款红利、只做小东西；Fellowship 要硬件 tinkerer、生物黑客、地下室核反应堆式野心
+- 文化来自三块 DNA；压制涌现或碎片成「文化口袋」都糟；可多元背景但应共享公司文化
+- 若很有价值却一用就被复刻，也许一开始就没那么有价值
+- 系统层 switch off Fable：有好的免费替代为何付高价
+- 在 ambition 边缘会更多被说 No；Love the No
+- Cognition/Cursor 近前沿 OSS coding 模型 → 6 个月内高价值域都会出现 domain-specific 模型
+- ChatGPT 新 app 功能重但日常 15–20 次轻查询变「沉重」
 
 ### Notable posts
 
-1. 长文谈 startup culture：策略讨论很多，但文化永远 breakfast 掉策略。他把文化来源拆成创始人、早期团队、早期产品三块 DNA，强调重叠与强化、top-down 与涌现并存；压制涌现（创始人制度化太弱）或文化碎片化都糟。明确拒绝被拖进 DEI 话语，主张背景可以多元，但要共享同一公司文化。
+> 每条均按 skill **`summarize-x-post`**：主帖深度总结 + 高信号回复观点（禁止一句带过）。
 
-   链接：https://x.com/adityaag/status/2079993986283123147
+#### 1. **Culture always eats strategy for breakfast**
 
-2. 直指 harness 痛点：memory “loss” 与 compaction 仍让所有 harness 容易忘事、犯糊涂，出错时 interpretability 也差。他认为把信息塞进 skills 可能是根因之一，并希望有更好的格式/语言来表达持久状态。这是投资人兼 builder 对 agent 产品层最具体的批评之一。
+**链接：** https://x.com/adityaag/status/2079993986283123147  
+**时间 / 互动：** 2026-07-22 · 约 55 likes / 9 replies / 39 bookmarks / 7.4k views
 
-   链接：https://x.com/adityaag/status/2079540355234414716
+##### 主帖在说什么
 
-3. 宣布自己在系统层面正在把模型从 Fable 上切走：不是夸张，有好且免费的替代时，为什么还要付那个价？把 frontier 溢价问题从“信仰”拉回“单位经济”——对 B 端/产品团队选型极有穿透力。
+他认为创业对话过度聚焦 Strategy，而 **Culture 永远吃掉 Strategy**。文化来自三源：创始人 personality/DNA、早期团队 DNA、早期产品 DNA——彼此重叠强化；既有 top-down 也有涌现。两害：创始人太弱压不住/固化涌现；意见过散形成多套亚文化。明确拒绝被拖进 DEI 论战：背景可不同，但应认同同一公司文化。
 
-   链接：https://x.com/adityaag/status/2077983435000324125
+##### 要点
 
-4. 呼应 “Love The No”：人们以为越成功被拒绝越少，其实在野心边缘 No 更多；自己当天就被说 No 五次。把融资与 BD 的拒绝重新定义为“你还在 punch up”的证据，而不是失败信号。
+- 三源：founder / early team / early product
+- 风险：压制涌现 vs 文化碎片化
+- 边界：多元背景 ≠ 多套文化契约
 
-   链接：https://x.com/adityaag/status/2077885770048877034
+##### 回复中的有价值观点
 
-5. Founder Fellowship 号召帖：最好的人担心的不是错过时刻，而是浪费它。批评只做小软件、沿用五年前价值捕获逻辑；点名要硬件 tinkerer、mad scientists、biohackers、地下室核反应堆式人物，软件也得有“朋友会嘲笑你”的 thesis。申请截止 Aug 2。
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@HarryKapoor19** | 文化=你奖励与惩罚什么；推荐 MrBeast culture deck | [post](https://x.com/HarryKapoor19/status/2080004372998791270) |
+| **@stutyashakti** | 文化在艰难期导航；硬决定沉淀成自上而下的潜规则 | [post](https://x.com/stutyashakti/status/2080005991857598636) |
+| **@Chainbuilderpro** | 当一团队成功默默给另一团队加成本时，文化会政治化 | [post](https://x.com/Chainbuilderpro/status/2080018841808306418) |
 
-   链接：https://x.com/adityaag/status/2074892507306238235
+##### 一句话概括
 
-6. 画出 AI 栈终点愿景：云端跑全部 agents、任选 frontier/OSS/中美模型、任选 harness、完整 tracing、递归改进回路——“知道会到，但能不能已经到了？”表达的是基础设施与平台层仍严重滞后于模型能力的不耐烦。
+用三 DNA 模型讲清 startup culture，讨论落到「奖惩」与「艰难期决策沉淀」。
 
-   链接：https://x.com/adityaag/status/2076047290083733539
+---
 
-7. 观察 Cognition 与 Cursor 发布基于 OSS 的近前沿 coding 模型：更有意思的不是单点发布，而是预示未来 6 个月高价值垂类都会出现 domain-specific 模型；路径是 long open + post-trained。
+#### 2. **Harness 记忆丢失与 compaction 仍是大坑**
 
-   链接：https://x.com/adityaag/status/2075594385518121245
+**链接：** https://x.com/adityaag/status/2079540355234414716  
+**时间 / 互动：** 2026-07-21 · 约 45 likes / 16 replies / 32 bookmarks / 7.3k views
 
-8. 分享 SPC 被 AI 改造后的副作用：写作文化暴增——会议记录、讨论 recap、board notes 都在变多，目的是喂给模型帮忙。把“AI-native org”落到一个反直觉细节：人写得更多，不是更少。
+##### 主帖在说什么
 
-   链接：https://x.com/adityaag/status/2077751406153613756
+他吐槽所有 harness 仍有严重 **memory "loss" 与 compaction** 问题：易忘、易混，终端用户挫败。出错时 **interpretability** 也差。把 **Skills 当信息存储** 视为根因之一，期待某种更好的 format/language。
+
+##### 要点
+
+- 症状：遗忘、混淆、错误不可解释
+- 根因假设：skills 承载记忆的方式不对
+- 诉求：新原语/语言，而不只是加 token
+
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@davemorin** | Agent memory 是最大问题之一；可能需每日训一部分权重；否则只是 search+上下文管理 | [post](https://x.com/davemorin/status/2079720148639084616) |
+| **@justinkalland** | 根因是把 chat transcript 当 continuation state——歧义、表面；缺 governed semantic state 原语 | [post](https://x.com/justinkalland/status/2079581609964302365) |
+| **@anieasyy** | 推 Greplica 作为 agents 共享读写 substrate | [post](https://x.com/anieasyy/status/2079595518603526517) |
+
+##### 一句话概括
+
+从用户痛点逼近「记忆不是更长上下文，而是缺语义状态原语」。
+
+---
+
+#### 3. **正在把系统从 Fable 上迁走：免费替代为何付费？**
+
+**链接：** https://x.com/adityaag/status/2077983435000324125  
+**时间 / 互动：** 2026-07-17 · 约 390 likes / 52 replies / 51.6k views
+
+##### 主帖在说什么
+
+他声明**不是夸张**：正在把自家系统的模型从 Fable 切走。逻辑直白——若存在足够好且免费的替代，为何继续付高价？这是 GP/builder 双重身份下的单位经济决策，不是评测站队。
+
+##### 要点
+
+- 行动：production switch off Fable
+- 理由：good + free alternative
+- 语气：反双曲、可审计的「literally」
+
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@trenchesbase** | 追问如何「免费」跑 Kimi：权重未放、自建可能数百万美元 | [post](https://x.com/trenchesbase/status/2078012175000740337) |
+| **@davemorin** | 同样切换；「看不出差别」 | [post](https://x.com/davemorin/status/2078003259340685818) |
+| **@shensi** | 建议 smart router（Merge gateway） | [post](https://x.com/shensi/status/2078082431874175169) |
+
+##### 一句话概括
+
+把模型选择从「SOTA 崇拜」拉回「可替代时的价格弹性」，并引发「免费到底多贵」的争论。
+
+---
+
+#### 4. **Founder Fellowship：别浪费这个时代**
+
+**链接：** https://x.com/adityaag/status/2074892507306238235  
+**时间 / 互动：** 2026-07-08 · 约 345 likes / 57 reposts / 140 bookmarks / 76.7k views · 视频
+
+##### 主帖在说什么
+
+每个创始人都怕「错过这个时刻」；最好的人怕的是**浪费**它。浪费=忽视世界已变、仍用 5 年前纯软件抓价值、只做小事。SPC 想要的人：硬件 tinkerer、mad scientist、biohacker、地下室堆核反应堆那种——摸 grass and atoms。若只做软件，至少要有朋友会嘲笑的异端 thesis。**Apply by Aug 2.**
+
+##### 要点
+
+- miss vs waste 的区分
+- 招募画像：atoms / hardware / heresy
+- CTA：South Park Commons Founder Fellowship
+
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@adityaag**（自跟） | 申请链与「Don't waste the moment」 | [post](https://x.com/adityaag/status/2074892952233705956) |
+| **@JPBrebner** | 视频里有自己镜头，互动拉近社区 | [post](https://x.com/JPBrebner/status/2074894937267765511) |
+
+##### 一句话概括
+
+用「浪费时代」重新定义 SPC fellowship：极大野心 + 硬科技/异端软件。
+
+---
+
+#### 5. **AI 终局清单：云 agents × 任意模型 × 任意 harness**
+
+**链接：** https://x.com/adityaag/status/2076047290083733539  
+**时间 / 互动：** 2026-07-11 · 约 200 likes / 45 replies / 96 bookmarks / 40.7k views
+
+##### 主帖在说什么
+
+他列终局能力：云端跑所有 agents、任选 frontier/OSS/中美模型、任选 harness、全 tracing、递归改进环。他知道「会到」，问的是 **can it happen already?**——催促产品层把碎片拼成默认体验。
+
+##### 要点
+
+- 五件套：cloud agents / multi-model / multi-harness / tracing / recursive improve
+- 情绪：不怀疑方向，急于 now
+- 隐含：当前栈仍碎片化
+
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@sabhyac267** | 推 omnigent_ai：任意 model×harness×平台 | [post](https://x.com/sabhyac267/status/2076656386197569588) |
+| **@ankrgyl** | 无 PMF/用户反馈与 eval 工程会膨胀变慢，不如 just use codex | [post](https://x.com/ankrgyl/status/2076446447546024286) |
+| **@loridotsh** | 自称 lori.sh 已做 multi-agent control plane | [post](https://x.com/loridotsh/status/2076138214121771133) |
+
+##### 一句话概括
+
+一张终局清单变成控制平面创业者的开源/产品路演墙。
 
 ### Products, launches, people
 
-- **@southpkcommons** / **Founder Fellowship**（apps due Aug 2；$1M fellowship 语境）
-- **@Bevel_Health**（bio）；**@drivewithchip**（Day -1 支持）
-- 模型/产品：**Fable**、ChatGPT 新 app/Codex 重量级体验吐槽、Cognition/Cursor OSS coding 模型
-- 人物/内容：**@gagan_shux**（spc_india 宇航员对谈）、**@gokulr**、**@jamesoniam**
-- 其他：Mesa 相关致谢语境；USMNT 足球情感帖
+- **@southpkcommons** Founder Fellowship（Aug 2）；**Bevel_Health**
+- **Chip**（@drivewithchip）Day -1 支持
+- 模型/工具：Fable、ChatGPT/Codex 体验吐槽；domain-specific OSS coding 模型观察
 
 ### Tone
 
-乐观投资人 + 建造者爸爸：长文观点清晰、偏文化与产业判断；爱国/家庭情感帖与尖锐产品批评并存，拒绝浅层社交、强调极大野心。
+GP 长帖 + 短句判断；文化/野心/经济学并重；夹杂足球与家庭情感帖，整体乐观、直接、略硬核。
 
 ---

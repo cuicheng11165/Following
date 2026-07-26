@@ -10,63 +10,182 @@
 
 ## Window: 2026-06-26 → 2026-07-26
 
-- **Fetched at:** 2026-07-26T19:28:25Z
-- **Posts in window (fetched):** 50 (cap 50: yes — 窗口内可能更多)
-- **Mode:** 30-day backfill (rewrite of existing window)
+- **Fetched at:** 2026-07-26T20:09:26Z
+- **Posts in window (fetched):** 40 (cap 50: no)
+- **Mode:** rewrite with summarize-x-post
+- **Notable method:** `summarize-x-post` (`x_thread_fetch` per item)
 
 ### Themes
 
-- **Systems thinking** 定义：半工程、半行为经济学——功能如何被用/误用/滥用
-- **Agent code review memory**：运行中的 review guide 更像 agent memory，新模式需升级给人
-- **SoftwareFactory / SoftwareFactoryFactory** 玩笑与「真正工厂」缺失原因（没人愿意 vibe code Java 等）
-- 产品哲学：Linear 重心是 Projects 不是 tickets；丢客户于功能说明本就不是你的客户
-- 命名、设计职责外溢到非软件「designer」角色；品味/系统思维 meme 化
+- **Systems thinking** 定义战争：工程 + 行为经济学；或成继 “taste” 后的下一 meme
+- Agent 时代的 **code review**：运行中的 review guide / agent memory，新模式升级给人
+- **SoftwareFactory** 元梗：FactoryFactory、Java vibe code 缺位
+- Linear 产品观：Projects 是重心而非 tickets；审慎自动回复
+- 轻松文化帖：享受工作 vs 无意义内卷
 
 ### Opinions and takes
 
-- Systems thinking = 建 feature X 时问：会被怎么用、误用、滥用？用户懂目的吗？缺什么？如何与其他功能/产品交互？可推广到公卫、法律等有意设计的意图。
-- Code review agent 默认找硬 bug/逻辑错；风格要靠人定期 hand review 沉淀 guidelines。理想态是 running review guide（更像 memory），新模式引入或指南需改时 escalate 给人。
-- 若能做 SoftwareFactory，就能做 SoftwareFactoryFactory；「真正 SoftwareFactory」缺失的真实原因之一被他指到没人自愿用 Java vibe code 等生态/语言现实。
-- Linear 的引力中心是 Projects 不是 tickets；别把 Linear 当 CRM。
-- 「systems thinking」会像「taste」一样成为下一波大 meme。
-- 因功能丢客户 → 那本来就不是你的客户。
+- Systems thinking（产品语境）= 工程 + 行为经济学：功能如何被用/滥用、用户是否理解、与其他功能/产品如何交互。
+- 可推广到公卫、法律等「被设计并实施的意图」，但仍需 intention/design，本质是工程概念。
+- 代码评审不会消失，而是变成：给 review agent 一份持续更新的架构意图目录（更像 agent memory）；新模式或指南变更时升级给人。
+- 若能做 SoftwareFactory，就能做 SoftwareFactoryFactory。
+- 「没人自愿 vibe code Java」= 我们还没有真正 SoftwareFactory 的原因之一。
+- Linear 的重心是 Projects，不是 tickets。
+- 丢客户若只因缺某功能，说明本就没抓住该客户。
 
 ### Notable posts
 
-1. **Systems thinking 的工作定义**  
-   他认为 systems thinking 一半是工程、一半是行为经济学。建 feature X 时要想：它可能被怎样使用、误用或滥用？用户是否理解其目的、会觉得缺什么？它如何与其他功能和产品交互？他强调是在产品开发语境下说，但可推广到公卫、法律等——核心是有 intention/design 的工程概念（甚至是某种社会工程）。  
-   链接：https://x.com/thenanyu/status/2081139836342145412
+> 每条均按 skill **`summarize-x-post`**：主帖深度总结 + 高信号回复观点。
 
-2. **Agent code review 应像 memory**  
-   他主张当下平衡：为 code review agent 维护一份 running review guide， catalog 代码架构的 patterns 与 intentions。这东西更像 agent memory 而非人写死的文档；若出现新 pattern 或指南本身需改，应 escalate 给人审。另说默认多抓 outright bugs/逻辑错，风格偏好可加；最好定期 hand review 边用边建 coding guidelines。  
-   链接：https://x.com/thenanyu/status/2081121226265633159
+#### 1. **Systems thinking 是什么？（征集定义）**
 
-3. **SoftwareFactory 与 Java vibe code**  
-   引用「没见过有人自愿用 Java vibe code」的帖，他写：「The real reason we don’t have a true SoftwareFactory」。另帖：「If you can make a SoftwareFactory, then you can make a SoftwareFactoryFactory」——把软件工厂递归开玩笑推到极致。  
-   链接：https://x.com/thenanyu/status/2081195994499133820
+**链接：** https://x.com/thenanyu/status/2079996178687459693  
+**时间 / 互动：** 2026-07-22 · ❤️ 86 · 🔁 4 · 💬 105 · 🔖 70 · 👀 32k
 
-4. **「Systems thinking」会成下一个 taste meme**  
-   在抛出定义帖后，他预测：「This is gonna be the next big meme after “taste”… I can feel it」，并邀请大家在脑中给 systems thinking 一个 exact definition。  
-   链接：https://x.com/thenanyu/status/2079996354340782090
+##### 主帖在说什么
 
-5. **命名问题：汽车业的四维命名**  
-   他重提「命名很难」，举例汽车：说「Accord」人人知是 Honda，还会问年份/LX——make、model、year、trim 四个维度各自对应功能与质量含义，暗示软件命名缺少这种公共语义密度。  
-   链接：https://x.com/thenanyu/status/2075734212653592995
+抛出开放问题：当你听到或说出 “systems thinking” 时，脑子里的精确定义是什么？自评论预感：这会是继 “taste” 之后的下一个大 meme。三天后给出自己在产品语境下的答案（见下条）。
 
-6. **PM/Design 职责与 Linear 产品观**  
-   认同协调型 PM 职责在萎缩，但「该建什么」仍是关键；并说一旦看软件外带 designer 头衔的人的工作，这点更明显。产品侧：Tickets 不是 Linear 的引力中心——Projects 才是；别把 Linear 当 CRM。  
-   链接：https://x.com/thenanyu/status/2076783865528516971
+##### 要点
 
-7. **客户与功能、以及工作态度**  
-   「If you lost a customer over a feature, you didn't have that customer to begin with.」另引用「enjoy what you work on」类观点并反讽「我以为必须卷到眼睛流血、忘了怎么笑」。问「Who types code still?」体现对 agent 写码常态的默认。  
-   链接：https://x.com/thenanyu/status/2077747884548665720
+- 概念澄清优先于口号
+- 预期 meme 化
+- 用问题帖收集高信噪定义
+
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@clairevo** (claire vo) | 产品/业务 taxonomy（名词/动词）→ 用例工作流 → 体验连贯 → 何时扩展 taxonomy → 从产品 ladder 到收入与企业价值。 | [post](https://x.com/clairevo/status/2080020868592468039) |
+| **@thenanyu**（自续） | 预感这是 taste 之后的下一 meme。 | [post](https://x.com/thenanyu/status/2079996354340782090) |
+
+##### 一句话概括
+
+用公开征集把含糊的 “systems thinking” 逼成可讨论的定义，并预感其 meme 化。
+
+---
+
+#### 2. **他的定义：工程 + 行为经济学**
+
+**链接：** https://x.com/thenanyu/status/2081139836342145412  
+**时间 / 互动：** 2026-07-25 · ❤️ 95 · 🔁 4 · 💬 9 · 👀 6.7k
+
+##### 主帖在说什么
+
+给出自己的答案：systems thinking 一半是工程，一半是行为经济学。建功能 X 时：可能如何被用、误用、滥用？用户能否理解目的、会嫌缺什么？如何与其他功能与产品交互？后续澄清：此处谈软件，但可推广到公卫/法律等「被设计的意图」；即使一般化，仍需要 intention/design，本质是工程概念。
+
+##### 要点
+
+- 三问：用/滥用、理解与缺口、系统交互
+- 行为侧 + 结构侧
+- 可跨域，但不丢「设计意图」
+
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@pdotcv** (Paul Macgregor) | 若谈软件设计 OK；更一般地是 zoom out、放进更广语境——可及品牌、政策、医学。 | [post](https://x.com/pdotcv/status/2081151940432482404) |
+| **@thenanyu**（自续） | 软件可推广到公卫/法律；意图仍是被设计与实施的。 | [post](https://x.com/thenanyu/status/2081183178568405171) |
+
+##### 一句话概括
+
+Systems thinking = 预演功能的社会技术后果与系统交互，而不只是画架构图。
+
+---
+
+#### 3. **Code review → agent memory 式 review guide**
+
+**链接：** https://x.com/thenanyu/status/2081121226265633159  
+**时间 / 互动：** 2026-07-25 · ❤️ 83 · 🔁 4 · 💬 5 · 🔖 64 · 👀 55k  
+**上下文：** 回复 @GergelyOrosz「Fable 后资深工程师不再审 AI 代码」
+
+##### 主帖在说什么
+
+当前正确平衡：给 code review agent 一份**运行中的 review guide**，编目代码架构的模式与意图。它更像 **agent memory** 而非静态人写文档；并指导：引入新模式或指南本身需改时，**升级给人类评审**。另回复：开箱主要抓硬 bug/逻辑错；风格偏好可另加；最好靠定期人工复盘逐步 bootstrap 编码指南。
+
+##### 要点
+
+- 人审不全丢，边界上收
+- living guide / memory > 静态 checklist
+- 新模式 = 人机交接触发器
+- Linear guided review UX 被用户点名表扬
+
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@amir_mehrabi_** | 有用的 agent memory 是意图/模式/例外的活模型；知道何时交给人，才配信任。 | [post](https://x.com/amir_mehrabi_/status/2081126852433678485) |
+| **@Jordi_Up** | 感谢 Linear guided reviews：4 个月 19k LOC 功能分支切 3 个 PR 飞过，微调后 merge。 | [post](https://x.com/Jordi_Up/status/2081231963206385730) |
+
+##### 一句话概括
+
+AI 时代 code review 应变成「可进化的架构记忆 + 新模式升级人」，而非全盘放弃。
+
+---
+
+#### 4. **SoftwareFactoryFactory**
+
+**链接：** https://x.com/thenanyu/status/2081187979024797858  
+**时间 / 互动：** 2026-07-26 · ❤️ 21 · 🔁 0 · 💬 7 · 👀 2.4k
+
+##### 主帖在说什么
+
+一句元层级玩笑/论断：如果你能做 SoftwareFactory，你就能做 SoftwareFactoryFactory——工厂的工厂，递归放大软件生产。
+
+##### 要点
+
+- 元生产 / 递归工业化叙事
+- 与当周 Software Factory 讨论互文
+- 短帖高概念密度
+
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@MattRoth** | 递归加码：FactoryFactoryFactory… | [post](https://x.com/MattRoth/status/2081189675361018040) |
+| **@_buggles** | 先做「能做出你想做之物的东西」。 | [post](https://x.com/_buggles/status/2081262080137798072) |
+| **@techwraith** | 物理世界类比：产品工厂的工厂？🤔 | [post](https://x.com/techwraith/status/2081191111801155916) |
+
+##### 一句话概括
+
+软件工厂叙事的下一跳是「造工厂的工厂」——元工具链递归。
+
+---
+
+#### 5. **Java vibe code 与真·SoftwareFactory 的缺失**
+
+**链接：** https://x.com/thenanyu/status/2081195994499133820  
+**时间 / 互动：** 2026-07-26 · ❤️ 19 · 🔁 0 · 💬 2 · 👀 4.4k  
+**引用：** @jasoki「没见过有人自愿 vibe code Java」
+
+##### 主帖在说什么
+
+把该观察收成结论：**这就是我们还没有真正 SoftwareFactory 的真实原因**——当「自愿、愉快地用 AI 写」尚未覆盖企业主流语言/栈时，工厂化生产仍不完整。
+
+##### 要点
+
+- 文化/栈意愿是工厂化瓶颈
+- 不止模型能力，还有语言生态与趣味
+- 与 Factory 元讨论闭合
+
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@petewilz** (Peter Wilczynski) | 甩出 Spring 式地狱名：`AbstractBeanFactoryCreatingFactoryBean`——工厂套娃梗拉满。 | [post](https://x.com/petewilz/status/2081202290212426053) |
+
+##### 一句话概括
+
+没有人愿意 vibe code 的栈，就撑不起「真·软件工厂」——意愿与栈覆盖是隐藏约束。
+
+---
 
 ### Products, launches, people
 
-- **Linear**（Projects 中心；非 CRM）
-- 概念：**SoftwareFactory**、agent code review memory / review guide
-- 人物：joshpuckett（design/PM 讨论）、tommoor（对接排查）、vboykis 等
+- **Linear**：Projects 重心、guided code review、集成边界（如 Google Chat 非官方）
+- 讨论对象：@GergelyOrosz、@clairevo、@rauchg 系 Software Factory 话语
+- 文化：@vboykis 论享受工作
 
 ### Tone
 
-短句、干幽默、产品哲学习惯一针见血；少长 thread，多定义澄清与 meme 级金句。偏「Head of Product 在时间线上课」。
+产品负责人式短帖：概念精确、略干幽默、少发长 thread；用问题帖与一句收束推动定义战。对 meme（taste → systems thinking）有自觉。

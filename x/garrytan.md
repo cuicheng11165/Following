@@ -10,72 +10,173 @@
 
 ## Window: 2026-06-26 → 2026-07-26
 
-- **Fetched at:** 2026-07-26T19:28:25Z
+- **Fetched at:** 2026-07-26T20:15:00Z
 - **Posts in window (fetched):** 50（cap 50: **yes**，窗口内实际更多）
-- **Mode:** 30-day backfill
+- **Mode:** 30-day backfill (full rewrite; Notable = summarize-x-post)
 - **Cursor:** per-builder（本 handle 独立窗口；非全局 job cursor）
+- **Notable method:** `summarize-x-post` (`x_thread_fetch` per item)
 
 ### Themes
 
-- **YC Startup School 2026**：规模约 3×、Chase Center 彩排、Jensen Huang / Boris Cherny 等嘉宾
-- **旧金山政治与住房**：建房优先于景观权、CEQA 改革、宪章改革、反对一笔财富税
-- **AI 与生产力扩散**：微观增益到宏观需管理层改流程，或需十年而非两年
-- **Open weight / 个人 AI**：开放权重「very very important」；GBrain、Personal AI is here
-- **创始人文化**：组织熵、社区、从摄影师到 YC CEO 的个人叙事；agent 运营公司（Gumroad）
+- **YC Startup School 2026**：规模 3×；欢迎首次来 SF 的技术年轻人；Jensen / Boris 等嘉宾
+- **SF 住房与 CEQA**：建房优先于景观权；废除/改革被 NIMBY 滥用的 CEQA
+- **AI 宏观生产率**：微观生产力增益尚未变宏观；管理层须批准激进编制与流程，准备 **10 年而非 2 年**
+- 创业文化：open weights 重要；「先被 dunk 再被 clone 然后你赢」；社区与必要性
 
 ### Opinions and takes
 
-- 应优先人与社区住房，而非个别业主景观 —「far far far more」
-- 宏观生产力取决于 CEO/经理是否批准**激进**的人员与工作流重组
-- Open weight models「very very important」
-- 投资者只看 traction 是懒；应有 demo 与理解用户的证据
-- 「First they dunk QT you. Then they git clone you. Then you win.」
-- 数字世界更孤独，需主动建设人类社区；团队凝聚要有人代谢冲突
-- 反对加州一笔财富税式资产征收；支持 Lurie 宪章改革
-- Personal AI 已到；GBrain 开源检索可接 Hermes / OpenClaw / Codex / Claude Code
+- Startup School 的秘密：对技术年轻人来说，创业「就是适合你的」
+- 从 2008 摄影师到台上 CEO：个人叙事 = YC 路径的活广告
+- 宏观 AI 红利取决于 CEO/经理是否敢改 staffing 与 workflow——目前大多没做
+- 住房：人与社区优先于「某人的景观」；CEQA 是加州阻建核心工具
+- 开放权重「非常非常重要」
 
 ### Notable posts
 
-1. **2008 摄影师 → 今日 Startup School**  
-   他把 2008 年在 YC Startup School 当摄影师、还没创过业的自己，与现在主持同一舞台对照，配图写「Look ma, I made it」——个人叙事与机构仪式叠在一起，给首次来 SF 的技术青年打样。  
-   链接：https://x.com/garrytan/status/2081153427531526298
+> 以下每条均按 skill **`summarize-x-post`**：`x_thread_fetch` 主帖 + 高信号回复。
 
-2. **Startup School 2026 启动，规模 3×**  
-   视频官宣本届启动：比去年大约 3 倍，专门让第一次很技术的年轻人来 SF 判断是否创业；并「泄密」：答案是 yes。定位是入门级、大规模的创业启蒙活动。  
-   链接：https://x.com/garrytan/status/2081091691872960590
+#### 1. **Startup School 2026：3× 更大，专为技术年轻人**
 
-3. **住房 > 景观权**  
-   回应 Marina Safeway 高层住宅争议中「景观会受影响」的抱怨：应远更优先人与充满活力的社区、以及更多住房，而不是某人的 view——「far far far more」。  
-   链接：https://x.com/garrytan/status/2081222788090830946
+**链接：** https://x.com/garrytan/status/2081091691872960590  
+**时间 / 互动（如有）：** Sat, 25 Jul 2026 · Likes≈1789, Reposts≈99, Views≈18.5万
 
-4. **宏观生产力或需 10 年而非 2 年**  
-   评 Stripe 经济团队相关讨论：要把 AI 的微观任务增益变成宏观生产力，经理与 CEO 必须批准**激进不同**的编制与工作流；迄今大多没做到。他提醒准备用 10 年而非 2 年。  
-   链接：https://x.com/garrytan/status/2080699367883980924
+##### 主帖在说什么
 
-5. **It’s time to build housing in SF**  
-   转发 Garry's List 关于 $185K 工程师在 SF 仍租不起一居的数据后，结论干脆：是时候在旧金山盖房了——把住房供给定义为政治与繁荣问题。  
-   链接：https://x.com/garrytan/status/2080443154730553402
+宣布 **YC Startup School 2026** 开场：规模是去年的 **3 倍**。活动定位给「第一次很技术、很年轻」的人来 SF 判断是否创业；并「泄密」：答案是 yes。附活动视频。
 
-6. **Open weight models are very very important**  
-   在相关安全/开放权重讨论中配图强调：开放权重模型「非常非常重要」——与 YC 生态里个人 AI、多模型 harness 的实践一致。  
-   链接：https://x.com/garrytan/status/2080345524620914897
+##### 要点
 
-7. **Gumroad agent OS：活在未来**  
-   转发对 Gumroad 用 Hermes agent（Gumclaw）以文件系统记忆、技能与脚本运营业务（含 support→工程修 bug→跟进客户）的拆解，评论「Living in the future looks like this」——把 agent 运营公司当作可复制的未来样本。  
-   链接：https://x.com/garrytan/status/2079926787828863450
+- 规模信号：3× YoY
+- 受众：first-time technical young people
+- 叙事：SF = 梦想诞生地；创业值得试
 
-8. **GBrain 开源检索库**  
-   自述 GBrain 是免费开源 retrieval 库，与 Hermes Agent、OpenClaw 最佳配合，也可用于 Codex 与 Claude Code；支撑他自己的 company brain 与 personal AI。附 GitHub 链接。  
-   链接：https://x.com/garrytan/status/2079178988745109797
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@bcherny** | 「Epic event. Thanks for the invite」——Claude Code 前线到场，嘉宾背书。 | [post](https://x.com/bcherny/status/2081100918934913351) |
+| **@KGoswami70** | 从印度观看，希望有一天从刷帖变成在场——地理接入差距。 | [post](https://x.com/KGoswami70/status/2081185969680863532) |
+
+##### 一句话概括
+
+3× 规模的 Startup School 开场帖：把 YC 文化现场卖给新一代技术新人。
+
+#### 2. **从 2008 摄影师到今天：Look ma, I made it**
+
+**链接：** https://x.com/garrytan/status/2081153427531526298  
+**时间 / 互动（如有）：** Sat, 25 Jul 2026 · Likes≈1635, Views≈14.3万
+
+##### 主帖在说什么
+
+Quote 自己旧帖（2008 年去 Startup School 拍照、还不会创业）配今日台上照片：「From photographer future founder at Startup School 2008 to this today / Look ma, I made it」——用个人弧线强化活动的人生可能性叙事。
+
+##### 要点
+
+- 18 年时间跨度：摄影学徒 → YC CEO
+- 情感钩子：「Look ma」式成就感
+- 内容功能：招募下一代「未来的我」
+
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@sporadica** | 「turns out you can just do things」——压缩成行动主义口号。 | [post](https://x.com/sporadica/status/2081154965003989153) |
+| **@zachcoelius** | 回忆当日 Bezos 在 Stanford 演讲；确认「you have made it」。 | [post](https://x.com/zachcoelius/status/2081155759128428607) |
+| **@kwok_phil** | 比喻「像超级碗但 AI」——活动在 AI 创业圈的文化地位。 | [post](https://x.com/kwok_phil/status/2081342508286796010) |
+
+##### 一句话概括
+
+用自己的 Startup School 弧线给 2026 届做「你也可以」的活证据。
+
+#### 3. **It’s time to build housing in SF**
+
+**链接：** https://x.com/garrytan/status/2080443154730553402  
+**时间 / 互动（如有）：** Fri, 24 Jul 2026 · Likes≈579, Views≈8.3万
+
+##### 主帖在说什么
+
+Quote @garryslist：年薪 18.5 万工程师在 SF 租不起一居；断层是 **有产 vs 挣薪**。他的结论压缩为一句：**该在 SF 建房了。**
+
+##### 要点
+
+- 住房危机触达高薪技术工
+- 政治叙事：own vs earn
+- 行动号召：build housing
+
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@laurenlself** | 「早就该了」并回链自己多年前「直接建更多房」的帖——供给派持续战。 | [post](https://x.com/laurenlself/status/2080446295538565146) |
+| **@_patriktang** | 「十年前就该」——市场「最 cooked」之一。 | [post](https://x.com/_patriktang/status/2080448637922877764) |
+| **@AndrewKorf** | 点名 El Camino Real 大量停车场与半死零售可改住房——空间机会具体化。 | [post](https://x.com/AndrewKorf/status/2080448449057882129) |
+
+##### 一句话概括
+
+一句建房号召，绑定高薪租不起与 own/earn 断层；回复要供给与具体选址。
+
+#### 4. **宏观生产率：准备 10 年不是 2 年**
+
+**链接：** https://x.com/garrytan/status/2080699367883980924  
+**时间 / 互动（如有）：** Fri, 24 Jul 2026 · Likes≈397, Bookmarks≈320, Views≈5.9万
+
+##### 主帖在说什么
+
+Quote Ruxandra Teslo / Stripe Economics：AI 的**微观**任务生产力增益尚未转化为**宏观**生产率。Garry 的组织层诊断：要拿宏观收益，经理与 CEO 必须批准**激进不同的编制与流程**；目前他们没做。准备期：**10 年不是 2 年**。
+
+##### 要点
+
+- 微观 ≠ 宏观：组织摩擦是瓶颈
+- 责任在管理层是否 greenlight 重组
+- 时间尺度：十年级扩散
+
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@LyleBCole** | 员工怕做得太好导致裁员；若按创造价值而非工时付薪会不同——激励错位。 | [post](https://x.com/LyleBCole/status/2080703532936671727) |
+| **@juan_zgz** | 若奖金仍跟团队规模挂钩，10 年都乐观——中层帝国激励。 | [post](https://x.com/juan_zgz/status/2080699979585266154) |
+| **@WesEklund** | 多数公司只是把 AI 贴在旧流程上，而非围绕 AI 重建——需要时间。 | [post](https://x.com/WesEklund/status/2080732202233377040) |
+
+##### 一句话概括
+
+AI 宏观红利卡在 CEO 敢不敢改编制；讨论补充员工恐惧与团队规模奖金等激励。
+
+#### 5. **废除/改革 CEQA**
+
+**链接：** https://x.com/garrytan/status/2080364752778527195  
+**时间 / 互动（如有）：** Thu, 23 Jul 2026 · Likes≈145, Views≈3.2万
+
+##### 主帖在说什么
+
+Quote PPIC 民调：73% 加州可能选民愿投 yes 以修改 **CEQA**、加快住房/交通/水/健康/清洁能源项目环评。他主张：**废除并改革 CEQA**——认为它是被 NIMBY 用来在加州到处阻建的核心监管工具。
+
+##### 要点
+
+- 民调支持 expedite 类改革
+- 定性：CEQA = NIMBY 武器
+- 政策立场：repeal and reform
+
+##### 回复中的有价值观点
+
+| 谁 | 观点 | 链接 |
+|----|------|------|
+| **@DaJet17** | 同意加速；分享数千份加州住房许可数据洞察。 | [post](https://x.com/DaJet17/status/2080366811200315759) |
+| **@RhysLindmark** | 称约 80% CEQA 诉讼来自无先前环运记录的团体——程序滥用指控。 | [post](https://x.com/RhysLindmark/status/2080368403488141411) |
+| **@RNPH288303** | 称 CEQA 是州经济增长的「terminal cancer」。 | [post](https://x.com/RNPH288303/status/2080673908328657181) |
+
+##### 一句话概括
+
+用民调背书把 CEQA 钉成加州住房危机的监管元凶，要求废除改革。
 
 ### Products, launches, people
 
-- **YC Startup School 2026**；YC × **Together AI** GPU cluster；YC RFS（defend America）
-- **GBrain**（开源）、**GStack**、**Garry's List**
-- 人物：Jensen Huang、Boris Cherny、Garrett Lord / Handshake、Sebastian Junger 引用等
+- **YC Startup School 2026**；嘉宾如 Jensen Huang、Boris Cherny 等
+- **Garry's List** / SF 住房政治
+- 开放权重立场；Handshake 等创业故事转发
 
 ### Tone
 
-极高产、混合创始人 cheerleading、市政倡议与 meme；时而庄重（住房/税）、时而 shitpost；对 SF 与加州政策立场强硬。
+高能 CEO + 公民活动家：活动宣传、住房怒吼、创业鸡汤与政策长句混排；偶发 shitpost 与硬刚。
 
 ---
