@@ -199,12 +199,48 @@ Follow `references/output-template.md`.
 
 1. Meta — window, post count, cap hit?
 2. Themes — 3–7 bullets
-3. Opinions / takes
-4. Notable posts + URLs
+3. Opinions / takes — cross-cutting views across the window
+4. **Notable posts** — see dedicated rules below (required)
 5. Products / launches / people
 6. Tone — short paragraph
 
 Language: match the user (Chinese if they write Chinese).
+
+#### Notable posts — required format
+
+Pick **3–8** high-signal posts (or all posts if fewer than 3). For **each** post, write a real summary of **that post’s** content and viewpoint — **not** a bare title and **not** a link-only line.
+
+Each item must include:
+
+1. **Viewpoint / content summary** (2–5 sentences, or several dense bullets): what they argued, announced, or observed **in this post**; include key claims, product names, numbers, or caveats when present.
+2. **Link** on its own line or clearly labeled: `链接：<url>` / `URL: <url>` when the tool provides one.
+
+**Bad (do not write this):**
+
+```markdown
+1. 谈到了 AI agent — https://x.com/...
+2. 发布了新产品 — https://x.com/...
+```
+
+**Good:**
+
+```markdown
+1. **主题短标题（可选）**  
+   他认为当前 agent 失败的主因不是模型智力，而是脚手架过重、上下文没有结构化；主张用更薄的 system prompt + 更厚的项目上下文。还举例说明砍掉 80% prompt 后任务完成率反而上升。  
+   链接：https://x.com/user/status/123
+
+2. **...**  
+   ...  
+   链接：https://x.com/user/status/456
+```
+
+Rules:
+
+- Summarize **the individual post** (and its thread only if you actually fetched thread context).
+- Do **not** invent quotes or details absent from the fetched text.
+- Do **not** dump raw post text as the whole “summary”; paraphrase and structure the take.
+- Short posts (one joke, one emoji reaction): one clear sentence of what it signals is enough, still plus URL.
+- If a “notable” item has no URL from tools, say so; prefer items that have URLs.
 
 ### Step 5 — Update state **per successful handle**
 

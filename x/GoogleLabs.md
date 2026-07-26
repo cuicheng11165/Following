@@ -10,9 +10,9 @@
 
 ## Window: 2026-06-26 → 2026-07-26
 
-- **Fetched at:** 2026-07-26T18:59:13Z
+- **Fetched at:** 2026-07-26T19:28:25Z
 - **Posts in window (fetched):** 3 (cap 50: no)
-- **Mode:** 30-day backfill
+- **Mode:** rewrite / 30-day window
 
 ### Themes
 
@@ -28,15 +28,23 @@
 
 ### Notable posts
 
-1. 祝贺 NotebookLM 成为 @Gemini_Notebook — https://x.com/GoogleLabs/status/2077832590132949268
-2. 简短表情回应（上下文不全）— https://x.com/GoogleLabs/status/2075668812217962814
-3. MusicFX / MusicFX DJ 将于 2026-07-31 告别，转向 Flow Music — https://x.com/GoogleLabs/status/2072417166952136789
+1. **祝贺 NotebookLM 成为 Gemini Notebook**  
+   引用 @Gemini_Notebook 的更名公告，回忆 Project Tailwind 曾是 Labs 里的「小实验」，后发展为 NotebookLM，如今以 @Gemini_Notebook 身份进入更广的 Google AI 组合；语气庆祝、强调团队与用户。原帖语境含：App 形态保留、使命仍是帮人学得更快，并预告文件夹等能力。  
+   链接：https://x.com/GoogleLabs/status/2077832590132949268
+
+2. **简短表情回应**  
+   仅用 🌍✨🤩 回复他人线程，无独立产品信息；信号是 Labs 账号仍在互动，但本条无可摘要的论点。  
+   链接：https://x.com/GoogleLabs/status/2075668812217962814
+
+3. **MusicFX / MusicFX DJ 于 2026-07-31 告别**  
+   用「和弦进行需要解决」作开场，宣布为聚焦构建 @GoogleFlowMusic（创作、分享与 remix 原创音乐），将于 2026 年 7 月 31 日告别 MusicFX 与 MusicFX DJ；称早期实验推进了实时 AI 音乐边界，经验会迁入 Flow Music 作为长期归宿，并给出继续创作的链接。  
+   链接：https://x.com/GoogleLabs/status/2072417166952136789
 
 ### Products, launches, people
 
 - **NotebookLM / Gemini Notebook**（原 Project Tailwind）
 - **Google Flow Music**；**MusicFX**、**MusicFX DJ**（sunset）
-- 关联账号：**@Gemini_Notebook**
+- 关联账号：**@Gemini_Notebook**、**@GoogleFlowMusic**
 
 ### Tone
 

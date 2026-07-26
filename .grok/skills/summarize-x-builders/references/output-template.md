@@ -30,8 +30,15 @@ Use this shape. Prepend new windows above older ones.
 
 ### Notable posts
 
-1. <one-line paraphrase> — <url>
-2. ...
+Each item = **that post’s viewpoint summary** (2–5 sentences) + **URL**. Never link-only or one vague phrase + link.
+
+1. **<optional short title>**  
+   <What this post claims, announces, or argues — concrete details from the post text.>  
+   链接：https://x.com/<handle>/status/<id>
+
+2. **<optional short title>**  
+   <...>  
+   链接：https://x.com/<handle>/status/<id>
 
 ### Products, launches, people
 
@@ -47,6 +54,15 @@ Use this shape. Prepend new windows above older ones.
 
 ...
 ```
+
+### Notable posts checklist
+
+| Must | Must not |
+|------|----------|
+| Summarize **this** post’s argument / news / observation | Only “谈到了 X — url” |
+| Keep numbers, product names, caveats from the post | Invent quotes or details |
+| Include URL when available | Link-only lines |
+| 3–8 items (or all if fewer posts) | Paste full raw tweets as the whole entry |
 
 ### Empty window
 
