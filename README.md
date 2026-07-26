@@ -51,9 +51,13 @@ Per-account cursors are more reliable than a single global timestamp when accoun
 
 At present, these files serve primarily as structured source directories. The automated summarization workflow currently focuses on X activity.
 
-### 5. Provide a reusable Grok Skill
+### 5. Provide reusable Grok Skills
 
-The repository includes [`.grok/skills/summarize-x-builders/`](./.grok/skills/summarize-x-builders/), which:
+The repository includes two project-level Skills under [`.grok/skills/`](./.grok/skills/).
+
+#### Batch: per-builder digests
+
+[`.grok/skills/summarize-x-builders/`](./.grok/skills/summarize-x-builders/):
 
 - Parses accounts from `builders.md`
 - Calculates an independent fetch window for each account
@@ -61,13 +65,27 @@ The repository includes [`.grok/skills/summarize-x-builders/`](./.grok/skills/su
 - Writes summaries to `x/<handle>.md`
 - Updates the index and incremental state
 
-In a Grok environment that supports project-level Skills, run:
-
 ```text
 /summarize-x-builders
 ```
 
 You can also use `/x-builders` or ask in natural language to update the builders' X activity.
+
+#### Single post: post + reply viewpoints
+
+[`.grok/skills/summarize-x-post/`](./.grok/skills/summarize-x-post/):
+
+- Accepts an X/Twitter status URL or numeric post id
+- Fetches the main post and thread reply context
+- Summarizes the main post's claim or question
+- Filters for high-signal replies (distinct theses, reasoned disagreement, products, concrete mechanisms)
+- Outputs a structured digest in chat (optionally saves to a file)
+
+```text
+/summarize-x-post
+```
+
+You can also use `/x-post`, paste a status link, or ask in natural language to summarize a post and its discussion.
 
 ## Project structure
 
@@ -84,12 +102,16 @@ You can also use `/x-builders` or ask in natural language to update the builders
 │   └── <handle>.md
 └── .grok/
     └── skills/
-        └── summarize-x-builders/
+        ├── summarize-x-builders/
+        │   ├── SKILL.md
+        │   ├── references/
+        │   │   └── output-template.md
+        │   └── scripts/
+        │       └── parse_builders.py
+        └── summarize-x-post/
             ├── SKILL.md
-            ├── references/
-            │   └── output-template.md
-            └── scripts/
-                └── parse_builders.py
+            └── references/
+                └── output-template.md
 ```
 
 ## Relationship to and differences from `follow-builders`
@@ -105,7 +127,7 @@ This project adopts the upstream project's core idea—follow people who build a
 | Source management | Default sources are centrally managed and updated | Source files live in the repository and can be edited directly |
 | Delivery | Supports in-chat, Telegram, email, and other scheduled delivery methods | Primarily Markdown files and indexes stored in Git |
 | Customization | Configure language, frequency, delivery, and summary prompts | Edit the watchlist, Skill, templates, and archived summaries directly |
-| Current coverage | X, podcasts, and official blogs are included in the digest pipeline | X supports summaries and incremental updates; podcasts and blogs are currently organized as directories |
+| Current coverage | X, podcasts, and official blogs are included in the digest pipeline | X supports per-builder incremental summaries and single-post + reply digests; podcasts and blogs are currently organized as directories |
 
 In short:
 
@@ -135,6 +157,23 @@ Run `/summarize-x-builders` in Grok. After it completes, review:
 - `x/README.md`: overall results for the latest run
 - `x/<handle>.md`: the new summary window for each builder
 - `x-summary-state.json`: account status and the starting point for the next fetch
+
+### Summarize one post and its replies
+
+When a single post (or thread discussion) matters more than a full account rollup, run `/summarize-x-post` with a status URL, for example:
+
+```text
+/summarize-x-post https://x.com/adityaag/status/2079540355234414716
+```
+
+The Skill returns:
+
+1. Metadata and a summary of the main post
+2. Key points from the author
+3. High-signal viewpoints from replies, with attribution and links
+4. A one-line takeaway for the discussion
+
+This path does not update `x-summary-state.json` or the per-builder files under `x/`. Use it for ad-hoc thread digests; use `/summarize-x-builders` for ongoing watchlist archival.
 
 ## Notes
 

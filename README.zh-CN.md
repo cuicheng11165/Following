@@ -51,23 +51,41 @@
 
 当前仓库主要将它们作为结构化信息源目录；现有自动摘要流程重点处理 X 动态。
 
-### 5. 提供可复用的 Grok Skill
+### 5. 提供可复用的 Grok Skills
 
-仓库内置 [`.grok/skills/summarize-x-builders/`](./.grok/skills/summarize-x-builders/)：
+仓库在 [`.grok/skills/`](./.grok/skills/) 下提供两个项目级 Skill。
+
+#### 批量：按 builder 做增量摘要
+
+[`.grok/skills/summarize-x-builders/`](./.grok/skills/summarize-x-builders/)：
 
 - 从 `builders.md` 自动解析账号
 - 按账号计算独立抓取窗口
 - 分页获取近期公开帖子
-- 将中文摘要写入 `x/<handle>.md`
+- 将摘要写入 `x/<handle>.md`
 - 更新汇总索引和增量状态
-
-在支持项目级 Skill 的 Grok 环境中，可运行：
 
 ```text
 /summarize-x-builders
 ```
 
 也可以使用 `/x-builders`，或直接用自然语言要求更新 builders 的 X 动态。
+
+#### 单帖：主帖 + 回复中的有价值观点
+
+[`.grok/skills/summarize-x-post/`](./.grok/skills/summarize-x-post/)：
+
+- 接受 X/Twitter 帖子链接或数字 status id
+- 抓取主帖及线程/回复上下文
+- 总结主帖论点或问题
+- 筛选高信号回复（独立论点、有理由的反对、产品/仓库、具体机制等）
+- 在对话中输出结构化摘要（也可按需写入文件）
+
+```text
+/summarize-x-post
+```
+
+也可以使用 `/x-post`、直接粘贴帖子链接，或用自然语言要求总结某条帖子及其讨论。
 
 ## 目录结构
 
@@ -84,12 +102,16 @@
 │   └── <handle>.md
 └── .grok/
     └── skills/
-        └── summarize-x-builders/
+        ├── summarize-x-builders/
+        │   ├── SKILL.md
+        │   ├── references/
+        │   │   └── output-template.md
+        │   └── scripts/
+        │       └── parse_builders.py
+        └── summarize-x-post/
             ├── SKILL.md
-            ├── references/
-            │   └── output-template.md
-            └── scripts/
-                └── parse_builders.py
+            └── references/
+                └── output-template.md
 ```
 
 ## 与 `follow-builders` 的关系和区别
@@ -105,7 +127,7 @@
 | 信息源管理 | 默认来源由上游中央维护并自动更新 | 来源文件保存在仓库内，可按个人需求直接修改 |
 | 交付方式 | 支持聊天内、Telegram、Email 等方式定时推送 | 以 Git 仓库内的 Markdown 文件和索引为主 |
 | 个性化方式 | 配置语言、频率、投递方式和摘要 prompt | 直接编辑名单、Skill、模板及已有摘要 |
-| 当前覆盖 | X、播客、官方博客均进入 digest 流程 | X 已实现摘要与增量更新；播客、博客目前以目录整理为主 |
+| 当前覆盖 | X、播客、官方博客均进入 digest 流程 | X 已支持按 builder 增量摘要与单帖+回复观点总结；播客、博客目前以目录整理为主 |
 
 简单来说：
 
@@ -135,6 +157,23 @@
 - `x/README.md`：本轮整体结果
 - `x/<handle>.md`：每人的新增摘要窗口
 - `x-summary-state.json`：每个账号的成功状态与下一次抓取起点
+
+### 总结单条帖子及其回复
+
+当关心的是某条帖子（或线程讨论）而不是整账号滚动摘要时，可运行 `/summarize-x-post` 并附上帖子链接，例如：
+
+```text
+/summarize-x-post https://x.com/adityaag/status/2079540355234414716
+```
+
+Skill 会返回：
+
+1. 主帖元信息与内容总结
+2. 作者要点
+3. 回复中的高信号观点（含归属与原文链接）
+4. 整场讨论的一句话概括
+
+该路径**不会**更新 `x-summary-state.json` 或 `x/` 下的按人摘要文件。适合临时消化讨论；持续归档关注列表请使用 `/summarize-x-builders`。
 
 ## 注意事项
 
