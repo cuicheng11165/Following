@@ -2,71 +2,150 @@
 name: summarize-x-builders
 description: >
   Fetch recent X/Twitter posts for builders listed in builders.md, summarize each
-  person's themes and opinions into X/<handle>.md, and track incremental windows
-  per builder in x-summary-state.json (each handle has its own last_fetched_at).
-  Use when the user wants X builder digests, monthly post summaries, incremental
-  builder updates, or runs /summarize-x-builders or /x-builders.
+  person's themes and opinions into a time-stamped run folder under x/runs/, and
+  track incremental windows per builder in x-summary-state.json. Use when the user
+  wants X builder digests, monthly post summaries, incremental builder updates, or
+  runs /summarize-x-builders or /x-builders.
 ---
 
 # Summarize X Builders
 
-You produce **per-builder summaries** of their recent X posts under the workspace
-`X/` directory.
+You produce **per-builder summaries** of recent X posts.
 
 **Critical: time windows are per person, not per whole job.**
 
 - Each builder has their own `last_fetched_at` in `x-summary-state.json`.
 - A newly added handle has no cursor → backfill the **past 30 days**.
-- If a previous run failed halfway, only successfully finished handles advance;
-  unfinished handles keep their old cursor (or still get a 30-day backfill if never done).
+- If a previous run failed halfway, only successfully finished handles advance.
 - Do **not** use a single global `last_run_at` as the fetch floor for everyone.
+
+**Critical: each run writes into its own time-stamped folder.**
+
+- Never append new windows into the same forever-growing `x/<handle>.md`.
+- Never dump all runs as flat files in `x/` root (hard to read after many runs).
+- One run → one directory named by **run start time (UTC)**.
 
 ## Absolute rules
 
 1. **Do not invent posts.** Only summarize content returned by X tools.
 2. **Every claim that refers to a post should keep a post URL** when the tool provides one.
-3. Work in the **current workspace root** (contains `builders.md` and `X/`).
+3. Work in the **current workspace root** (contains `builders.md` and `x/`).
 4. Prefer tools over guessing. Zero posts in-range → still write a short empty-window note.
-5. Never delete prior summary sections unless the user explicitly asks for a full rewrite.
-6. **Only advance a handle’s `last_fetched_at` after that handle succeeds** (summary file written). Failures leave that handle’s cursor unchanged.
-7. Prefer **updating state after each successful builder** (or small batch), so a mid-run crash does not lose progress.
+5. **One run, one output folder.** Do not prepend historical windows into a single file.
+6. **Only advance a handle’s `last_fetched_at` after that handle succeeds** (file written in this run’s folder). Failures leave that handle’s cursor unchanged.
+7. Prefer **updating state after each successful builder** (or small batch).
+8. Keep **`x/README.md` as a run index only** (list of runs + link to latest), not a wall of every handle forever.
 
 ## Paths (relative to workspace root)
 
 | Path | Purpose |
 |------|---------|
 | `builders.md` | Source list of builders (handles) |
-| `X/` | Output: one markdown file per builder |
-| `x-summary-state.json` | **Per-builder** fetch cursors + last-run metadata |
+| `x/runs/<run_id>/` | **This run’s** outputs only (one folder per run) |
+| `x/runs/<run_id>/<handle>.md` | Per-builder summary for this run |
+| `x/runs/<run_id>/README.md` | Index for this run only |
+| `x/README.md` | Catalog of runs (latest first); not per-builder content |
+| `x/latest` | Symlink (or text pointer) to the newest `x/runs/<run_id>/` |
+| `x-summary-state.json` | Per-builder cursors + last run id |
 
-If `builders.md` is missing, stop and tell the user.
+### Run id format
+
+At the **start** of each job, set:
+
+```text
+run_id = UTC now formatted as YYYY-MM-DDTHHMMSSZ
+```
+
+Examples: `2026-07-26T201500Z`, `2026-08-01T083012Z`
+
+- Use **UTC**, zero-padded, **no colons** (filesystem-safe).
+- Create the folder **once** at run start and write **all** this run’s files only there:
+
+```bash
+RUN_ID=$(date -u +"%Y-%m-%dT%H%M%SZ")
+mkdir -p "x/runs/${RUN_ID}"
+```
+
+Optional deep post artifacts for this run only:
+
+```text
+x/runs/<run_id>/posts/<post_id>.md
+```
+
+### Layout goals (readability)
+
+```text
+x/
+  README.md                 # run catalog only
+  latest -> runs/2026-07-26T201500Z
+  runs/
+    2026-07-26T201500Z/     # one complete snapshot
+      README.md
+      karpathy.md
+      swyx.md
+      ...
+    2026-07-20T090000Z/     # previous run (untouched)
+      ...
+```
+
+**Do not** keep writing:
+
+```text
+x/karpathy.md   # accumulates forever — forbidden for new runs
+```
+
+### Migrating legacy flat layout
+
+If you find old files like `x/karpathy.md`, `x/swyx.md` (not under `x/runs/`):
+
+1. Create `x/runs/<legacy_run_id>/` using the best known time from those files’ meta
+   (e.g. `Fetched at`) or from `x-summary-state.json` `last_run_at`.
+2. Move all flat `x/*.md` **except** `x/README.md` into that run folder.
+3. Rebuild `x/README.md` as a run catalog.
+4. Point `x/latest` at that run folder.
+5. Then start the new run in a **new** `run_id` folder.
+
+### Retention (avoid pile-up)
+
+After a successful run, **prune old run folders** so the tree stays readable:
+
+| Setting | Default |
+|---------|---------|
+| Keep last **N** run directories under `x/runs/` | **N = 10** |
+
+Rules:
+
+1. List `x/runs/*/` sorted by name descending (ISO-like `run_id` sorts chronologically).
+2. Keep the newest **10** (or N if the user specified another number).
+3. **Delete** older run directories (entire folder).
+4. Never delete the run folder you just wrote in this job until pruning runs after success.
+5. If the user says “keep all history” or “do not prune”, skip deletion.
+6. Report what was pruned in the final summary.
+
+`x/latest` must always point at the newest remaining run after prune.
 
 ---
 
-## State file format (version 2)
+## State file format (version 2+)
 
 ```json
 {
   "version": 2,
   "builders_file": "builders.md",
-  "output_dir": "X",
-  "last_run_at": "2026-07-26T18:59:13Z",
+  "output_dir": "x/runs",
+  "last_run_at": "2026-07-26T20:15:00Z",
+  "last_run_id": "2026-07-26T201500Z",
+  "last_run_dir": "x/runs/2026-07-26T201500Z",
+  "retain_runs": 10,
   "builders": {
     "karpathy": {
       "name": "Andrej Karpathy",
-      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_fetched_at": "2026-07-26T20:15:00Z",
       "last_window_start": "2026-06-26T00:00:00Z",
-      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_window_end": "2026-07-26T20:15:00Z",
       "last_posts_fetched": 9,
-      "last_status": "ok"
-    },
-    "swyx": {
-      "name": "Swyx",
-      "last_fetched_at": "2026-07-26T18:59:13Z",
-      "last_window_start": "2026-06-26T00:00:00Z",
-      "last_window_end": "2026-07-26T18:59:13Z",
-      "last_posts_fetched": 40,
-      "last_status": "ok"
+      "last_status": "ok",
+      "last_run_id": "2026-07-26T201500Z"
     }
   }
 }
@@ -76,47 +155,46 @@ If `builders.md` is missing, stop and tell the user.
 
 | Field | Scope | Meaning |
 |-------|--------|---------|
-| `version` | global | Must be `2` for per-builder cursors |
-| `last_run_at` | global | When the **job** last finished or last wrote state (informational only; **not** the fetch floor for all handles) |
-| `builders.<handle>` | per person | Cursor and last result for that handle |
-| `last_fetched_at` | per person | End of the last **successful** window for this handle. Next run uses this as `window_start` |
-| `last_window_start` / `last_window_end` | per person | Last successful window bounds |
-| `last_posts_fetched` | per person | Count in last successful fetch |
-| `last_status` | per person | `ok` \| `empty` \| `error` (only `ok`/`empty` advance the cursor; `error` does not) |
+| `version` | global | `2` = per-builder cursors |
+| `last_run_at` | global | Job heartbeat (not everyone’s fetch floor) |
+| `last_run_id` / `last_run_dir` | global | Newest completed run folder |
+| `retain_runs` | global | How many run folders to keep (default 10) |
+| `builders.<handle>.last_fetched_at` | per person | Next run’s `window_start` for this handle |
+| `builders.<handle>.last_run_id` | per person | Which run last successfully wrote this handle |
 
 ### Handle key matching
 
-- Prefer the **canonical handle** from `builders.md` as the JSON key (e.g. `AmandaAskell`, `_catwu`).
-- When looking up, match **case-insensitively** if the key casing differs.
-- Never invent a second entry for the same person under different casing; consolidate into the canonical key.
+- Prefer the **canonical handle** from `builders.md` as the JSON key.
+- Lookup is **case-insensitive**; consolidate casing to canonical.
 
 ### Migrating version 1 → 2
 
-If `x-summary-state.json` has `"version": 1` (or no version) with top-level `last_run_at` and `builders_processed`:
+If top-level `last_run_at` + `builders_processed` (v1):
 
-1. Build `builders` map: for each handle in `builders_processed` that is **not** in `builders_failed`, set:
-   - `last_fetched_at` = top-level `last_run_at` (or `window_end` if present)
-   - `last_window_start` / `last_window_end` from v1 fields when available
-   - `last_posts_fetched` from `posts_fetched[handle]` when available
-   - `last_status`: `ok`
-2. Handles only in `builders_failed` (or never listed): **no** `last_fetched_at` → 30-day backfill next time.
-3. Rewrite the file as **version 2** before or while processing.
-4. Do **not** keep using v1 global `last_run_at` as everyone’s floor after migration.
+1. For each successful processed handle, set `last_fetched_at` from v1 `last_run_at` / `window_end`.
+2. Failed / never-run handles: no cursor → 30-day backfill.
+3. Rewrite as version 2; do not use global `last_run_at` as everyone’s floor after migration.
 
 ---
 
 ## Workflow
 
-### Step 0 — Confirm workspace
+### Step 0 — Confirm workspace + create run folder
 
 ```bash
 pwd
-ls -la builders.md x-summary-state.json X 2>/dev/null
+ls -la builders.md x-summary-state.json x 2>/dev/null
 ```
 
 ```bash
-mkdir -p X
+RUN_ID=$(date -u +"%Y-%m-%dT%H%M%SZ")
+mkdir -p "x/runs/${RUN_ID}"
+echo "$RUN_ID"
 ```
+
+Remember `run_id` and `run_dir=x/runs/<run_id>` for the whole job.
+
+If legacy flat `x/<handle>.md` files exist outside `runs/`, migrate them first (see above).
 
 ### Step 1 — Parse builders
 
@@ -129,225 +207,160 @@ Produce `{ name, handle, profile_url }[]`. Deduplicate by case-insensitive handl
 ### Step 2 — Load state and resolve **per-builder** windows
 
 1. Load `x-summary-state.json` if present; migrate v1 → v2 if needed.
-2. Let `run_now` = current UTC time (ISO-8601).
-3. For **each** builder independently:
+2. `run_now` = current UTC ISO-8601 (align with `run_id`).
+3. For **each** builder:
 
-| Condition | `window_start` | Mode label |
-|-----------|----------------|------------|
-| `builders[handle].last_fetched_at` exists and is valid ISO time | that timestamp | `incremental` |
-| No entry / missing `last_fetched_at` / never succeeded | `run_now − 30 days` | `30-day backfill` |
+| Condition | `window_start` | Mode |
+|-----------|----------------|------|
+| Valid `last_fetched_at` | that timestamp | `incremental` |
+| Missing / never succeeded | `run_now − 30 days` | `30-day backfill` |
 
-- `window_end` = `run_now` (same end for everyone in this job is fine; **starts differ**).
-- For X date operators, convert to `YYYY-MM-DD`:
-  - `since:` = calendar date of `window_start` (optional: one day earlier for safety; document if you do)
-  - `until:` = day **after** `window_end` date (exclusive upper bound)
+- `window_end` = `run_now`.
+- X operators: `since:YYYY-MM-DD`, `until:` = day after end date.
 
-Tell the user a short plan table, for example:
+Tell the user:
 
-> Per-builder windows (sample):  
-> - karpathy: incremental from 2026-07-26T18:59:13Z  
-> - newhandle: 30-day backfill  
-> - failed_last_time: 30-day or resume from their last ok cursor  
-
-If many share the same cursor, you may group: “22 incremental from T, 4 backfill”.
+> Run folder: `x/runs/<run_id>/`  
+> Per-builder windows: N incremental, M backfill  
 
 ### Step 3 — Fetch posts per builder
 
-Use that builder’s own `since` / `until` derived from **their** window.
+Same as before: `x_keyword_search` with each builder’s window, Latest, limit 10, paginate, cap 50.
 
-#### Primary tool: `x_keyword_search`
+Empty → write empty file in **this run folder** still counts as success for cursor.
 
-```text
-from:<handle> since:<this_builder_start_date> until:<this_builder_end_date_plus_one>
-```
+### Step 4 — Summarize each builder into **this run folder only**
 
-- `mode: "Latest"`
-- `limit` max **10** per call — paginate
-
-#### Pagination
-
-1. First page: limit 10, Latest.
-2. If 10 results: tighten `until:` from oldest post in page (or `max_id:`).
-3. Stop when page &lt; 10, posts before `window_start`, or **50 posts** cap (note cap in file).
-
-#### Empty / errors
-
-- **0 posts:** write empty-window section; treat as success for cursor advance (`last_status: "empty"`).
-- **Tool / write failure:** set in-memory `last_status: "error"`; **do not** update `last_fetched_at` for that handle; continue others.
-
-Process in parallel batches (3–5) when possible. Each builder still uses **its own** window.
-
-### Step 4 — Summarize each builder
-
-Write/update:
+Write:
 
 ```text
-X/<handle>.md
+x/runs/<run_id>/<handle>.md
 ```
 
-Use the **canonical handle** from `builders.md` for the filename (e.g. `X/AmandaAskell.md`, `X/_catwu.md`).
+Canonical handle for filename (e.g. `AmandaAskell.md`, `_catwu.md`).
 
 Follow `references/output-template.md`.
 
-**Incremental file behavior:**
-
-- Prepend a new `## Window: <start> → <end>` section if the file exists.
-- Do not remove older window sections.
-- Meta must record **this handle’s** window and mode (`incremental` vs `30-day backfill`).
+**Each file is a single-run snapshot** (one window only). Do **not** prepend older windows into the same file. Historical content lives in older `x/runs/<other_id>/` folders.
 
 #### Summary quality bar
 
-1. Meta — window, post count, cap hit?
-2. Themes — 3–7 bullets
-3. Opinions / takes — cross-cutting views across the window
-4. **Notable posts** — **must** use the `summarize-x-post` skill (see below)
-5. Products / launches / people
-6. Tone — short paragraph
+1. Meta — run_id, window, post count, cap, mode  
+2. Themes — 3–7 bullets  
+3. Opinions / takes  
+4. **Notable posts** — must use `summarize-x-post`  
+5. Products / launches / people  
+6. Tone  
 
-Language: match the user (Chinese if they write Chinese).
+Language: match the user.
 
-#### Notable posts — **must use `summarize-x-post`**
+#### Notable posts — must use `summarize-x-post`
 
-A short paraphrase of the keyword-search snippet is **not enough**.
+For each of **3–5** high-signal posts (or all if fewer than 3):
 
-For each notable post you **must** run the **`summarize-x-post`** workflow
-(read `.grok/skills/summarize-x-post/SKILL.md` and its
-`references/output-template.md` if needed):
+1. Parse `post_id` from URL.  
+2. `x_thread_fetch` with that id.  
+3. Main post summary (2–6 sentences) + 要点.  
+4. High-signal replies (who + take + link).  
+5. One-line takeaway.
 
-1. Parse `post_id` from the status URL (digits after `/status/`).
-2. Call `x_thread_fetch` with that `post_id` (main post + parent/replies).
-3. Summarize **main post** (2–6 sentences + key points).
-4. Extract **high-signal reply viewpoints** (who + take + link; typically 3–8 replies; skip emoji/spam).
-5. Add a **one-line takeaway** for post + discussion.
+Structure: see `references/output-template.md`.
 
-**Selection:** pick **3–5** high-signal posts per builder per window
-(or all posts if fewer than 3). Prefer:
+Optional: `x/runs/<run_id>/posts/<post_id>.md`.
 
-- Original theses / long threads / product launches
-- High engagement or dense technical content
-- Not pure RTs of others without added comment (unless the quote-comment is the point)
-
-**Per-item structure inside `### Notable posts`:** embed a compact
-`summarize-x-post` block (same sections as that skill’s template):
-
-```markdown
-### Notable posts
-
-> 以下每条均按 skill `summarize-x-post`：`x_thread_fetch` 主帖 + 高信号回复。
-
-#### 1. **<短标题>**
-
-**链接：** https://x.com/<handle>/status/<id>  
-**时间 / 互动（如有）：** ...
-
-##### 主帖在说什么
-
-<2–6 句：主张、论据、产品名、数字、限定条件；勿只写一句空话>
-
-##### 要点
-
-- ...
-- ...
-
-##### 回复中的有价值观点
-
-| 谁 | 观点 | 链接 |
-|----|------|------|
-| **@handle** | <1–4 句实质观点，非 “agree”> | [post](url) |
-
-（无回复上下文时写明「未获取到回复上下文」。）
-
-##### 一句话概括
-
-<一句：主帖 + 讨论的核心>
-```
-
-**Optional artifact:** also write full post digests to
-`X/posts/<post_id>.md` when useful; still **embed** the summary in
-`X/<handle>.md` so the builder file stands alone.
-
-**Bad (do not write this):**
-
-```markdown
-1. 谈到了 AI agent — https://x.com/...
-2. **Opus 5**  
-   发布了 Opus 5，很好。  
-   链接：https://x.com/...
-```
-
-**Rules:**
-
-- **No notable item without `x_thread_fetch`** (unless fetch fails twice — then note the error and fall back to search-snippet summary labeled `（仅列表摘要，thread 拉取失败）`).
-- Do **not** invent replies or quotes.
-- Parallelize: after selecting notable IDs for a handle, you may `x_thread_fetch` several posts concurrently.
-- Cap: still max **50** list posts per handle from search; deep-summarize only the 3–5 notables.
+Fallback if thread fetch fails twice: label `（仅列表摘要，thread 拉取失败）`.
 
 ### Step 5 — Update state **per successful handle**
 
-After each handle succeeds (file written, including empty window):
-
-1. Read current `x-summary-state.json` (or keep a merged in-memory object you flush often).
-2. Upsert `builders[handle]`:
+After each success:
 
 ```json
 {
   "name": "<display name>",
-  "last_fetched_at": "<this handle window_end ISO UTC>",
-  "last_window_start": "<this handle window_start ISO>",
-  "last_window_end": "<this handle window_end ISO>",
+  "last_fetched_at": "<window_end ISO UTC>",
+  "last_window_start": "<window_start ISO>",
+  "last_window_end": "<window_end ISO>",
   "last_posts_fetched": <n>,
-  "last_status": "ok"
+  "last_status": "ok",
+  "last_run_id": "<run_id>"
 }
 ```
 
-Use `"empty"` for zero-post success. Do **not** write `last_fetched_at` for errors.
+Also set global `last_run_id`, `last_run_dir`, `last_run_at` as you go or at end.  
+`last_status`: `empty` for zero posts. **Do not** advance cursor on error.
 
-3. Optionally set global `last_run_at` to now (job heartbeat only).
-4. Write the full JSON back (`version: 2`).
+### Step 6 — Run index + root catalog + latest pointer
 
-**Safe write pattern:** rewrite the whole file with pretty-printed JSON after each success or after each small batch so crashes mid-job only lose the unfinished handles.
+#### A) `x/runs/<run_id>/README.md`
 
-### Step 6 — Index
+Only this run:
 
-Update `X/README.md` after the run (or incrementally):
+- run_id, fetched at, mode notes  
+- Table: handle | posts | notables | headline | file link  
 
-- Note that windows are **per builder**
-- Table: handle | name | window mode | window start → end | posts | headline | file
+#### B) `x/README.md` (run catalog)
 
-### Step 7 — Final state + report
+Rewrite as a **list of runs**, newest first — **not** a full dump of every builder every time:
 
-1. Ensure `x-summary-state.json` is version 2 and reflects every success/error this run.
-2. Global `last_run_at` = job end time (informational).
-3. Report to user:
+```markdown
+# X Builders 运行目录
 
-- How many incremental vs 30-day backfill
-- Success / empty / failed counts
-- List failed handles (cursor **not** advanced)
-- List newly backfilled handles (no prior cursor)
-- Paths: `X/`, `x-summary-state.json`
+| 最新运行 | [x/runs/<run_id>/](./runs/<run_id>/) |
+|----------|--------------------------------------|
+| 快捷入口 | [x/latest](./latest) |
+
+## 历史运行
+
+| Run ID | 路径 | 说明 |
+|--------|------|------|
+| 2026-07-26T201500Z | [runs/...](./runs/...) | ... |
+```
+
+#### C) `x/latest`
+
+```bash
+cd x && rm -f latest && ln -s "runs/${RUN_ID}" latest
+```
+
+If symlink is undesirable on the platform, write `x/latest` as a one-line text file containing the path `runs/<run_id>`.
+
+### Step 7 — Prune old runs
+
+Unless user disabled retention:
+
+```bash
+# Keep newest retain_runs (default 10); delete the rest under x/runs/
+```
+
+Update `x/README.md` catalog after prune. Fix `x/latest` if needed.
+
+### Step 8 — Report to user
+
+- `run_id` and path `x/runs/<run_id>/`
+- Incremental vs backfill counts
+- Success / empty / failed
+- Failed handles (cursor not advanced)
+- How many old runs pruned
+- Point to `x/latest` for reading
 
 ---
 
 ## Single-handle or custom window
 
-If the user asks for one person or a custom range:
-
-- Use their range, or that handle’s per-person cursor if not specified.
-- Still write `X/<handle>.md`.
-- On success, advance **only that handle’s** `last_fetched_at` (unless they asked for a dry-run).
+- Still create (or reuse current job’s) `run_id` folder if this is part of a full run.
+- One-off single handle: `x/runs/<run_id>/<handle>.md` is fine; advance only that handle’s cursor.
+- Do not write back into a shared forever file.
 
 ---
 
 ## Tool cheat sheet
 
 ```text
-# List posts in window
 x_keyword_search
   query: from:karpathy since:2026-07-26 until:2026-07-28
   limit: 10
   mode: Latest
 
-# Deep-summarize each notable (required) — same as skill summarize-x-post
 x_thread_fetch
   post_id: 2079610838143623371
 
@@ -356,9 +369,7 @@ x_user_search
   count: 1
 ```
 
-Related skill: **`summarize-x-post`** (`.grok/skills/summarize-x-post/SKILL.md`) — single post + discussion. This skill **calls that method** for every Notable item.
-
-Do **not** scrape x.com HTML as the primary method.
+Related: **`summarize-x-post`** for every Notable item.
 
 ---
 
@@ -368,22 +379,23 @@ Do **not** scrape x.com HTML as the primary method.
 |-----------|--------|
 | `builders.md` missing | Stop |
 | No X tools | Stop |
-| New handle, no state entry | 30-day backfill for that handle only |
-| Handle failed last run | Retry from their last **successful** `last_fetched_at`, or 30-day if never succeeded |
-| Partial job crash | Already-saved handles keep new cursors; rest unchanged |
+| Cannot create `x/runs/<run_id>/` | Stop |
+| New handle | 30-day backfill for that handle only |
+| Partial crash | Finished handles keep cursors + files in run folder |
 | Rate limits | Smaller batches; failed handles keep old cursors |
-| v1 state file | Migrate to v2 per rules above |
+| Legacy flat `x/*.md` | Migrate into one historical run folder first |
 
 ---
 
 ## Done checklist
 
-- [ ] Builders parsed from `builders.md`
-- [ ] State loaded; v1 migrated to v2 if needed
-- [ ] **Each** builder has its own window (incremental or 30-day)
-- [ ] Posts listed with pagination (cap 50)
-- [ ] Each Notable post ran **`summarize-x-post`** / `x_thread_fetch` (not list-snippet only)
-- [ ] `X/<handle>.md` written/prepended for each attempted handle
-- [ ] `last_fetched_at` updated **only** for successes (per handle)
-- [ ] `X/README.md` updated
-- [ ] User report includes incremental vs backfill vs failed
+- [ ] `run_id` created; all outputs under `x/runs/<run_id>/` only  
+- [ ] Builders parsed; per-builder windows resolved  
+- [ ] Posts listed (cap 50); notables via `summarize-x-post` / `x_thread_fetch`  
+- [ ] No flat forever-file under `x/<handle>.md` for this run  
+- [ ] `x/runs/<run_id>/README.md` written  
+- [ ] `x/README.md` is a **run catalog**  
+- [ ] `x/latest` points at this run  
+- [ ] Old runs pruned (default keep 10) unless disabled  
+- [ ] Per-handle `last_fetched_at` updated only on success  
+- [ ] User reported path + prune summary  

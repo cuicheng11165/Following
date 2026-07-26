@@ -23,15 +23,15 @@ In addition to profile links, the file includes short biographies, areas of inte
 
 ### 2. Generate per-builder X summaries
 
-[`x/`](./x/) stores a separate activity summary for each builder, such as [`x/karpathy.md`](./x/karpathy.md). Each summary includes:
+Each run of the summarizer writes into a **time-stamped folder** under [`x/runs/`](./x/runs/), for example [`x/runs/2026-07-26T201500Z/karpathy.md`](./x/runs/2026-07-26T201500Z/karpathy.md). Use [`x/latest`](./x/latest) as a shortcut to the newest run. Each per-builder file includes:
 
 - Major themes within the selected time window
 - Notable opinions and observations
-- Representative posts with links to the originals
+- Deep digests of notable posts (via `summarize-x-post`: main take + high-signal replies)
 - Products, launches, and people mentioned
 - A short description of the builder's overall tone
 
-[`x/README.md`](./x/README.md) provides an index of the latest run, including post counts and a one-line summary for every builder.
+[`x/README.md`](./x/README.md) is a **catalog of runs** (not a pile of all historical handles in one place). Each run folder has its own `README.md` index.
 
 ### 3. Update each account incrementally
 
@@ -62,8 +62,9 @@ The repository includes two project-level Skills under [`.grok/skills/`](./.grok
 - Parses accounts from `builders.md`
 - Calculates an independent fetch window for each account
 - Retrieves recent public posts with pagination
-- Writes summaries to `x/<handle>.md`
-- Updates the index and incremental state
+- Writes this run only to `x/runs/<YYYY-MM-DDTHHMMSSZ>/`
+- Updates `x/latest`, the run catalog, and per-account incremental state
+- Keeps the last 10 run folders by default (prunes older runs for readability)
 
 ```text
 /summarize-x-builders
@@ -98,8 +99,12 @@ You can also use `/x-post`, paste a status link, or ask in natural language to s
 ├── blogs.md
 ├── x-summary-state.json
 ├── x/
-│   ├── README.md
-│   └── <handle>.md
+│   ├── README.md              # run catalog
+│   ├── latest -> runs/<id>/   # pointer to newest run
+│   └── runs/
+│       └── <YYYY-MM-DDTHHMMSSZ>/
+│           ├── README.md
+│           └── <handle>.md
 └── .grok/
     └── skills/
         ├── summarize-x-builders/
@@ -140,8 +145,8 @@ This project is not a complete port of `follow-builders` and does not depend on 
 
 ### Browse existing summaries
 
-1. Open [`x/README.md`](./x/README.md) to see the latest update overview.
-2. Open the corresponding `x/<handle>.md` file for a detailed summary of a builder.
+1. Open [`x/latest`](./x/latest) (or [`x/README.md`](./x/README.md) → newest run) for the latest run.
+2. Open `x/latest/<handle>.md` (or `x/runs/<run_id>/<handle>.md`) for a builder.
 3. Follow the original post links to verify context and details.
 
 ### Edit the watchlist
@@ -154,8 +159,9 @@ New accounts receive a 30-day backfill on their first run. Existing accounts res
 
 Run `/summarize-x-builders` in Grok. After it completes, review:
 
-- `x/README.md`: overall results for the latest run
-- `x/<handle>.md`: the new summary window for each builder
+- `x/runs/<run_id>/`: this run’s full snapshot (per-handle files + run `README.md`)
+- `x/latest`: symlink/pointer to that folder
+- `x/README.md`: catalog of historical runs
 - `x-summary-state.json`: account status and the starting point for the next fetch
 
 ### Summarize one post and its replies

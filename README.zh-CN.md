@@ -23,15 +23,15 @@
 
 ### 2. 按人生成 X 动态摘要
 
-[`x/`](./x/) 为每位 builder 保存一份独立的动态摘要，例如 [`x/karpathy.md`](./x/karpathy.md)。每份摘要包含：
+每次运行会写入 **按时间命名** 的目录，例如 [`x/runs/2026-07-26T201500Z/karpathy.md`](./x/runs/2026-07-26T201500Z/karpathy.md)。快捷入口：[`x/latest`](./x/latest)。每份摘要包含：
 
 - 指定时间窗口内的主要话题
 - 值得关注的观点和判断
-- 代表性帖子及原文链接
+- 代表性帖子的深度总结（经 `summarize-x-post`：主帖 + 高信号回复）及原文链接
 - 涉及的产品、发布和人物
 - 发言风格与整体倾向
 
-[`x/README.md`](./x/README.md) 提供本次抓取的汇总索引，可快速查看所有人的更新数量和一句话摘要。
+[`x/README.md`](./x/README.md) 是 **运行历史目录**（避免单文件无限膨胀）；每次运行文件夹内另有该次的 `README.md` 索引。
 
 ### 3. 支持按账号增量更新
 
@@ -62,7 +62,7 @@
 - 从 `builders.md` 自动解析账号
 - 按账号计算独立抓取窗口
 - 分页获取近期公开帖子
-- 将摘要写入 `x/<handle>.md`
+- 将本轮摘要写入 `x/runs/<YYYY-MM-DDTHHMMSSZ>/`，并更新 `x/latest`（默认保留最近 10 次运行）
 - 更新汇总索引和增量状态
 
 ```text
@@ -98,8 +98,12 @@
 ├── blogs.md
 ├── x-summary-state.json
 ├── x/
-│   ├── README.md
-│   └── <handle>.md
+│   ├── README.md              # 运行目录
+│   ├── latest -> runs/<id>/   # 最新一次
+│   └── runs/
+│       └── <YYYY-MM-DDTHHMMSSZ>/
+│           ├── README.md
+│           └── <handle>.md
 └── .grok/
     └── skills/
         ├── summarize-x-builders/
@@ -140,8 +144,8 @@
 
 ### 浏览已有内容
 
-1. 从 [`x/README.md`](./x/README.md) 查看最近一次更新总览。
-2. 打开对应的 `x/<handle>.md` 阅读某位 builder 的详细摘要。
+1. 打开 [`x/latest`](./x/latest)（或 [`x/README.md`](./x/README.md) → 最新 run）查看最近一次更新。
+2. 打开 `x/latest/<handle>.md` 阅读某位 builder 的详细摘要。
 3. 通过原文链接回到 X 核对上下文。
 
 ### 修改关注列表
@@ -154,8 +158,9 @@
 
 在 Grok 中运行 `/summarize-x-builders`。完成后重点检查：
 
-- `x/README.md`：本轮整体结果
-- `x/<handle>.md`：每人的新增摘要窗口
+- `x/runs/<run_id>/`：本轮完整快照（每人一份文件 + 运行索引）
+- `x/latest`：指向该目录的快捷入口
+- `x/README.md`：历史运行目录
 - `x-summary-state.json`：每个账号的成功状态与下一次抓取起点
 
 ### 总结单条帖子及其回复
