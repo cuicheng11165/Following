@@ -1,0 +1,216 @@
+{
+  "version": 2,
+  "builders_file": "builders.md",
+  "output_dir": "X",
+  "last_run_at": "2026-07-26T18:59:13Z",
+  "builders": {
+    "karpathy": {
+      "name": "Andrej Karpathy",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 9,
+      "last_status": "ok"
+    },
+    "swyx": {
+      "name": "Swyx",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 40,
+      "last_status": "ok"
+    },
+    "joshwoodward": {
+      "name": "Josh Woodward",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 40,
+      "last_status": "ok"
+    },
+    "bcherny": {
+      "name": "Boris Cherny",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 40,
+      "last_status": "ok"
+    },
+    "thsottiaux": {
+      "name": "Thibault Sottiaux",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 40,
+      "last_status": "ok"
+    },
+    "petergyang": {
+      "name": "Peter Yang",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 40,
+      "last_status": "ok"
+    },
+    "thenanyu": {
+      "name": "Nan Yu",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 40,
+      "last_status": "ok"
+    },
+    "realmadhuguru": {
+      "name": "Madhu Guru",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 41,
+      "last_status": "ok"
+    },
+    "AmandaAskell": {
+      "name": "Amanda Askell",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 8,
+      "last_status": "ok"
+    },
+    "_catwu": {
+      "name": "Cat Wu",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 35,
+      "last_status": "ok"
+    },
+    "trq212": {
+      "name": "Thariq",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 50,
+      "last_status": "ok"
+    },
+    "GoogleLabs": {
+      "name": "Google Labs",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 3,
+      "last_status": "ok"
+    },
+    "amasad": {
+      "name": "Amjad Masad",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 50,
+      "last_status": "ok"
+    },
+    "rauchg": {
+      "name": "Guillermo Rauch",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 50,
+      "last_status": "ok"
+    },
+    "alexalbert__": {
+      "name": "Alex Albert",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 5,
+      "last_status": "ok"
+    },
+    "levie": {
+      "name": "Aaron Levie",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 50,
+      "last_status": "ok"
+    },
+    "ryolu_": {
+      "name": "Ryo Lu",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 33,
+      "last_status": "ok"
+    },
+    "garrytan": {
+      "name": "Garry Tan",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 50,
+      "last_status": "ok"
+    },
+    "mattturck": {
+      "name": "Matt Turck",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 50,
+      "last_status": "ok"
+    },
+    "zarazhangrui": {
+      "name": "Zara Zhang",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 48,
+      "last_status": "ok"
+    },
+    "nikunj": {
+      "name": "Nikunj Kothari",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 50,
+      "last_status": "ok"
+    },
+    "steipete": {
+      "name": "Peter Steinberger",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 50,
+      "last_status": "ok"
+    },
+    "danshipper": {
+      "name": "Dan Shipper",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 50,
+      "last_status": "ok"
+    },
+    "adityaag": {
+      "name": "Aditya Agarwal",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 41,
+      "last_status": "ok"
+    },
+    "sama": {
+      "name": "Sam Altman",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 50,
+      "last_status": "ok"
+    },
+    "claudeai": {
+      "name": "Claude",
+      "last_fetched_at": "2026-07-26T18:59:13Z",
+      "last_window_start": "2026-06-26T00:00:00Z",
+      "last_window_end": "2026-07-26T18:59:13Z",
+      "last_posts_fetched": 50,
+      "last_status": "ok"
+    }
+  }
+}
