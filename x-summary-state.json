@@ -76,15 +76,6 @@
       "last_status": "ok",
       "last_run_id": "2026-07-26T201500Z"
     },
-    "AmandaAskell": {
-      "name": "Amanda Askell",
-      "last_fetched_at": "2026-07-26T18:59:13Z",
-      "last_window_start": "2026-06-26T00:00:00Z",
-      "last_window_end": "2026-07-26T18:59:13Z",
-      "last_posts_fetched": 8,
-      "last_status": "ok",
-      "last_run_id": "2026-07-26T201500Z"
-    },
     "_catwu": {
       "name": "Cat Wu",
       "last_fetched_at": "2026-07-26T18:59:13Z",

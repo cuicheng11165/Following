@@ -14,7 +14,7 @@
 
 [`builders.md`](./builders.md) 收录当前关注的 26 个 AI builder 账号，包括：
 
-- AI 实验室与研究：Andrej Karpathy、Sam Altman、Amanda Askell 等
+- AI 实验室与研究：Andrej Karpathy、Sam Altman 等
 - AI 编程与 Agent：Boris Cherny、Cat Wu、Thariq、Peter Steinberger 等
 - AI 产品与创业：Amjad Masad、Guillermo Rauch、Aaron Levie、Garry Tan 等
 - 产品、投资与行业观察：Nan Yu、Matt Turck、Zara Zhang、Dan Shipper 等

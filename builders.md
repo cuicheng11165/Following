@@ -1,7 +1,7 @@
 # Follow Builders — X Builders
 
 > Source: `follow-builders` skill · `config/default-sources.json` · `x_accounts`  
-> Total: **26** accounts  
+> Total: **25** accounts  
 > Platform: [X (Twitter)](https://x.com)
 
 These are the AI builders tracked by the Follow Builders digest. The list is curated centrally and may update over time. Intros below are based on public bios and public profiles; roles can change.
@@ -20,25 +20,23 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | 6 | Peter Yang | `@petergyang` | Practical AI tutorials & interviews | https://x.com/petergyang |
 | 7 | Nan Yu | `@thenanyu` | Head of Product @ Linear | https://x.com/thenanyu |
 | 8 | Madhu Guru | `@realmadhuguru` | Sr Director, AI @ Meta; ex-Google Gemini/Veo | https://x.com/realmadhuguru |
-| 9 | Amanda Askell | `@AmandaAskell` | Philosopher & ethicist @ Anthropic | https://x.com/AmandaAskell |
-| 10 | Cat Wu | `@_catwu` | Claude Code + Cowork @ Anthropic | https://x.com/_catwu |
-| 11 | Thariq | `@trq212` | Claude Code @ Anthropic | https://x.com/trq212 |
-| 12 | Google Labs | `@GoogleLabs` | Google AI tools & experiments (official) | https://x.com/GoogleLabs |
-| 13 | Amjad Masad | `@amasad` | CEO @ Replit | https://x.com/amasad |
-| 14 | Guillermo Rauch | `@rauchg` | CEO @ Vercel | https://x.com/rauchg |
-| 15 | Alex Albert | `@alexalbert__` | Research @ Anthropic | https://x.com/alexalbert__ |
-| 16 | Aaron Levie | `@levie` | CEO @ Box | https://x.com/levie |
-| 17 | Ryo Lu | `@ryolu_` | Design @ Cursor | https://x.com/ryolu_ |
-| 18 | Garry Tan | `@garrytan` | President & CEO @ Y Combinator | https://x.com/garrytan |
-| 19 | Matt Turck | `@mattturck` | VC @ FirstMark; MAD Podcast | https://x.com/mattturck |
-| 20 | Zara Zhang | `@zarazhangrui` | Builder; author of follow-builders | https://x.com/zarazhangrui |
-| 21 | Nikunj Kothari | `@nikunj` | Partner @ FPV Ventures | https://x.com/nikunj |
-| 22 | Peter Steinberger | `@steipete` | OpenClaw; ex-PSPDFKit founder | https://x.com/steipete |
-| 23 | Dan Shipper | `@danshipper` | CEO @ Every | https://x.com/danshipper |
-| 24 | Aditya Agarwal | `@adityaag` | GP @ South Park Commons; ex-Dropbox CTO | https://x.com/adityaag |
-| 25 | Sam Altman | `@sama` | CEO @ OpenAI | https://x.com/sama |
-| 26 | Claude | `@claudeai` | Official Anthropic / Claude account | https://x.com/claudeai |
-
+| 9 | Cat Wu | `@_catwu` | Claude Code + Cowork @ Anthropic | https://x.com/_catwu |
+| 10 | Thariq | `@trq212` | Claude Code @ Anthropic | https://x.com/trq212 |
+| 11 | Google Labs | `@GoogleLabs` | Google AI tools & experiments (official) | https://x.com/GoogleLabs |
+| 12 | Amjad Masad | `@amasad` | CEO @ Replit | https://x.com/amasad |
+| 13 | Guillermo Rauch | `@rauchg` | CEO @ Vercel | https://x.com/rauchg |
+| 14 | Alex Albert | `@alexalbert__` | Research @ Anthropic | https://x.com/alexalbert__ |
+| 15 | Aaron Levie | `@levie` | CEO @ Box | https://x.com/levie |
+| 16 | Ryo Lu | `@ryolu_` | Design @ Cursor | https://x.com/ryolu_ |
+| 17 | Garry Tan | `@garrytan` | President & CEO @ Y Combinator | https://x.com/garrytan |
+| 18 | Matt Turck | `@mattturck` | VC @ FirstMark; MAD Podcast | https://x.com/mattturck |
+| 19 | Zara Zhang | `@zarazhangrui` | Builder; author of follow-builders | https://x.com/zarazhangrui |
+| 20 | Nikunj Kothari | `@nikunj` | Partner @ FPV Ventures | https://x.com/nikunj |
+| 21 | Peter Steinberger | `@steipete` | OpenClaw; ex-PSPDFKit founder | https://x.com/steipete |
+| 22 | Dan Shipper | `@danshipper` | CEO @ Every | https://x.com/danshipper |
+| 23 | Aditya Agarwal | `@adityaag` | GP @ South Park Commons; ex-Dropbox CTO | https://x.com/adityaag |
+| 24 | Sam Altman | `@sama` | CEO @ OpenAI | https://x.com/sama |
+| 25 | Claude | `@claudeai` | Official Anthropic / Claude account | https://x.com/claudeai |
 ---
 
 ## Who to follow for what
@@ -48,7 +46,7 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | Training / research intuition | Andrej Karpathy |
 | Industry direction & OpenAI | Sam Altman, Thibault Sottiaux |
 | Google AI products & experiments | Josh Woodward, Google Labs |
-| Claude / Claude Code frontline | Boris Cherny, Cat Wu, Thariq, Alex Albert, Amanda Askell |
+| Claude / Claude Code frontline | Boris Cherny, Cat Wu, Thariq, Alex Albert |
 | Coding-agent products | Amjad Masad, Ryo Lu, Boris / Cat |
 | Deploy & frontend AI apps | Guillermo Rauch |
 | Product craft & quality | Nan Yu |
@@ -149,18 +147,7 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | **Source type** | X account (`x_accounts`) |
 | **Intro** | Senior AI leader at Meta; previously at Google working on Gemini, Veo, and related generative products. Frontline big-lab multimodal / generative product perspective. |
 
-### 9. Amanda Askell
-
-| Field | Value |
-|-------|-------|
-| **Name** | Amanda Askell |
-| **Handle** | `AmandaAskell` |
-| **Profile URL** | https://x.com/AmandaAskell |
-| **X bio (public)** | Philosopher & ethicist trying to make AI be good @AnthropicAI. Personal account. |
-| **Source type** | X account (`x_accounts`) |
-| **Intro** | Philosopher and ethicist at Anthropic working on making models behave well. Posts about model character, alignment, values, and behavior—not product release notes. |
-
-### 10. Cat Wu
+### 9. Cat Wu
 
 | Field | Value |
 |-------|-------|
@@ -171,7 +158,7 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | **Source type** | X account (`x_accounts`) |
 | **Intro** | Product lead for Claude Code and Cowork at Anthropic (prev Dagster, Scale). Often paired with Boris Cherny as the product + engineering pair behind Claude Code. |
 
-### 11. Thariq
+### 10. Thariq
 
 | Field | Value |
 |-------|-------|
@@ -182,7 +169,7 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | **Source type** | X account (`x_accounts`) |
 | **Intro** | Engineer on Claude Code at Anthropic; former founder (YC W20, etc.). Shares highly actionable agent tips, Skills, and internal practice write-ups. |
 
-### 12. Google Labs
+### 11. Google Labs
 
 | Field | Value |
 |-------|-------|
@@ -193,7 +180,7 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | **Source type** | X account (`x_accounts`) |
 | **Intro** | Official Google account (not a person). Showcase for Labs experiments and AI tool launches. Complements Josh Woodward’s personal account. |
 
-### 13. Amjad Masad
+### 12. Amjad Masad
 
 | Field | Value |
 |-------|-------|
@@ -204,7 +191,7 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | **Source type** | X account (`x_accounts`) |
 | **Intro** | CEO of Replit. Frequently discusses cloud IDEs, agents, and democratizing software creation; Replit Agent is a core product narrative. |
 
-### 14. Guillermo Rauch
+### 13. Guillermo Rauch
 
 | Field | Value |
 |-------|-------|
@@ -215,7 +202,7 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | **Source type** | X account (`x_accounts`) |
 | **Intro** | CEO of Vercel; central figure in the Next.js / frontend deployment ecosystem. Strong perspective on shipping AI apps, DX, and infrastructure. |
 
-### 15. Alex Albert
+### 14. Alex Albert
 
 | Field | Value |
 |-------|-------|
@@ -226,7 +213,7 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | **Source type** | X account (`x_accounts`) |
 | **Intro** | On Anthropic’s research / product side; previously known for Claude relations and developer relations. Posts about model capabilities, use cases, and community feedback loops. |
 
-### 16. Aaron Levie
+### 15. Aaron Levie
 
 | Field | Value |
 |-------|-------|
@@ -237,7 +224,7 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | **Source type** | X account (`x_accounts`) |
 | **Intro** | CEO of Box. Frequently writes about enterprise software, content platforms, and how AI reshapes B2B workflows—large following among business/tech audiences. |
 
-### 17. Ryo Lu
+### 16. Ryo Lu
 
 | Field | Value |
 |-------|-------|
@@ -248,7 +235,7 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | **Source type** | X account (`x_accounts`) |
 | **Intro** | Design lead at Cursor; early Notion and Stripe background. Unique design + AI coding-tool product perspective. |
 
-### 18. Garry Tan
+### 17. Garry Tan
 
 | Field | Value |
 |-------|-------|
@@ -259,7 +246,7 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | **Source type** | X account (`x_accounts`) |
 | **Intro** | President & CEO of Y Combinator; designer/engineer turned ecosystem builder. Talks startups, SF, founders, and personal tooling projects. |
 
-### 19. Matt Turck
+### 18. Matt Turck
 
 | Field | Value |
 |-------|-------|
@@ -270,7 +257,7 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | **Source type** | X account (`x_accounts`) |
 | **Intro** | Partner at FirstMark; host of the MAD Podcast and author of the MAD Landscape. Strong on AI/data infrastructure maps and investment-oriented industry views. Also linked to the MAD podcast source in Follow Builders. |
 
-### 20. Zara Zhang
+### 19. Zara Zhang
 
 | Field | Value |
 |-------|-------|
@@ -281,7 +268,7 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | **Source type** | X account (`x_accounts`) |
 | **Intro** | Builder and creator; author of the **follow-builders** skill/repo. Writes about agents, personal leverage, and the “follow builders, not influencers” approach. |
 
-### 21. Nikunj Kothari
+### 20. Nikunj Kothari
 
 | Field | Value |
 |-------|-------|
@@ -292,7 +279,7 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | **Source type** | X account (`x_accounts`) |
 | **Intro** | Partner at FPV Ventures (seed/Series A). Early operator experience at Meter, Opendoor, Atlassian, etc.—investor with a builder background. |
 
-### 22. Peter Steinberger
+### 21. Peter Steinberger
 
 | Field | Value |
 |-------|-------|
@@ -303,7 +290,7 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | **Source type** | X account (`x_accounts`) |
 | **Intro** | Founder of PSPDFKit; later returned to full-time building with AI agents. Known for **OpenClaw** (formerly Clawd/Clawdbot)—a highly visible personal-agent project—and collaboration with the OpenAI/agent ecosystem. Archetypal “retired founder who came back to ship with agents.” |
 
-### 23. Dan Shipper
+### 22. Dan Shipper
 
 | Field | Value |
 |-------|-------|
@@ -314,7 +301,7 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | **Source type** | X account (`x_accounts`) |
 | **Intro** | CEO of Every (AI-era media/tools subscription). Related to the *AI & I* podcast in Follow Builders. Focus: how knowledge workers stay current and productive with AI. |
 
-### 24. Aditya Agarwal
+### 23. Aditya Agarwal
 
 | Field | Value |
 |-------|-------|
@@ -325,7 +312,7 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | **Source type** | X account (`x_accounts`) |
 | **Intro** | GP at South Park Commons; early Facebook engineer, former Dropbox CTO. Investor/community figure with a deep builder track record. |
 
-### 25. Sam Altman
+### 24. Sam Altman
 
 | Field | Value |
 |-------|-------|
@@ -336,7 +323,7 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | **Source type** | X account (`x_accounts`) |
 | **Intro** | CEO of OpenAI; former Y Combinator president. Posts often touch company strategy, product launches, and industry direction—one of the most central voices in AI. |
 
-### 26. Claude
+### 25. Claude
 
 | Field | Value |
 |-------|-------|

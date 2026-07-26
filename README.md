@@ -14,7 +14,7 @@ The project follows AI builders who actively work on products, research, and eng
 
 [`builders.md`](./builders.md) contains 26 AI builder accounts, including:
 
-- AI labs and research: Andrej Karpathy, Sam Altman, Amanda Askell, and others
+- AI labs and research: Andrej Karpathy, Sam Altman, and others
 - AI coding and agents: Boris Cherny, Cat Wu, Thariq, Peter Steinberger, and others
 - AI products and startups: Amjad Masad, Guillermo Rauch, Aaron Levie, Garry Tan, and others
 - Product, investing, and industry analysis: Nan Yu, Matt Turck, Zara Zhang, Dan Shipper, and others
