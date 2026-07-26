@@ -9,7 +9,7 @@
 | [`builders.md`](./builders.md) | X 上关注的 26 位 AI builders 及简介 |
 | [`podcasts.md`](./podcasts.md) | 关注的播客源 |
 | [`blogs.md`](./blogs.md) | 关注的博客源 |
-| [`X/`](./X/) | 每人最近 X 帖子摘要（按 handle 分文件） |
+| [`x/`](./x/) | 每人最近 X 帖子摘要（按 handle 分文件） |
 | [`x-summary-state.json`](./x-summary-state.json) | 每人增量抓取游标（v2） |
 | [`.grok/skills/summarize-x-builders/`](./.grok/skills/summarize-x-builders/) | 抓取并总结 X 动态的 Grok skill |
 
