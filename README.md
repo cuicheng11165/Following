@@ -4,7 +4,7 @@
 
 A personal information-tracking and knowledge-archiving project for AI practitioners.
 
-The project follows AI builders who actively work on products, research, and engineering rather than accounts that simply repeat trending news. It currently organizes **26 X (Twitter) accounts, 6 podcasts, and 2 official blogs**, with each builder's recent activity summarized in searchable, version-controlled Markdown files.
+The project follows AI builders who actively work on products, research, and engineering rather than accounts that simply repeat trending news. It currently organizes **33 X (Twitter) accounts, 6 podcasts, and 2 official blogs**, with each builder's recent activity summarized in searchable, version-controlled Markdown files.
 
 > This project is primarily inspired by the philosophy and source design of [zarazhangrui/follow-builders](https://github.com/zarazhangrui/follow-builders): **Follow builders, not influencers**. Many thanks to the original author for sharing the idea and implementation.
 
@@ -12,11 +12,12 @@ The project follows AI builders who actively work on products, research, and eng
 
 ### 1. Maintain a curated list of AI builders
 
-[`builders.md`](./builders.md) contains 26 AI builder accounts, including:
+[`builders.md`](./builders.md) contains 33 AI builder accounts, including:
 
-- AI labs and research: Andrej Karpathy, Sam Altman, and others
-- AI coding and agents: Boris Cherny, Cat Wu, Thariq, Peter Steinberger, and others
+- AI labs and research: Andrej Karpathy, Dario Amodei, Jim Fan, Sam Altman, and others
+- AI coding and agents: Boris Cherny, Cat Wu, Thariq, Paul Gauthier, Michael Truell, Peter Steinberger, and others
 - AI products and startups: Amjad Masad, Guillermo Rauch, Aaron Levie, Garry Tan, and others
+- Tooling & DX: Simon Willison, Theo, Lee Robinson, and others
 - Product, investing, and industry analysis: Nan Yu, Matt Turck, Zara Zhang, Dan Shipper, and others
 
 In addition to profile links, the file includes short biographies, areas of interest, and topic-based recommendations. The list can be edited directly to match your own interests.

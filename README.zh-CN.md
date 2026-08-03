@@ -4,7 +4,7 @@
 
 一个面向 AI 从业者的个人信息追踪与知识归档项目。
 
-项目关注真正参与产品、研究和工程实践的 AI builders，而不是单纯转述热点的内容账号。目前仓库整理了 **26 个 X（Twitter）账号、6 档播客和 2 个官方博客**，并将每位 builder 的近期动态分别总结为可检索、可版本管理的 Markdown 文档。
+项目关注真正参与产品、研究和工程实践的 AI builders，而不是单纯转述热点的内容账号。目前仓库整理了 **33 个 X（Twitter）账号、6 档播客和 2 个官方博客**，并将每位 builder 的近期动态分别总结为可检索、可版本管理的 Markdown 文档。
 
 > 本项目主要参考了 [zarazhangrui/follow-builders](https://github.com/zarazhangrui/follow-builders) 的理念与信息源设计：**Follow builders, not influencers**。感谢原项目作者提供的思路和公开实现。
 
@@ -12,11 +12,12 @@
 
 ### 1. 维护 AI builders 信息源
 
-[`builders.md`](./builders.md) 收录当前关注的 26 个 AI builder 账号，包括：
+[`builders.md`](./builders.md) 收录当前关注的 33 个 AI builder 账号，包括：
 
-- AI 实验室与研究：Andrej Karpathy、Sam Altman 等
-- AI 编程与 Agent：Boris Cherny、Cat Wu、Thariq、Peter Steinberger 等
+- AI 实验室与研究：Andrej Karpathy、Dario Amodei、Jim Fan、Sam Altman 等
+- AI 编程与 Agent：Boris Cherny、Cat Wu、Thariq、Paul Gauthier、Michael Truell、Peter Steinberger 等
 - AI 产品与创业：Amjad Masad、Guillermo Rauch、Aaron Levie、Garry Tan 等
+- 工具与 DX：Simon Willison、Theo、Lee Robinson 等
 - 产品、投资与行业观察：Nan Yu、Matt Turck、Zara Zhang、Dan Shipper 等
 
 文件不仅提供账号链接，也包含人物简介、关注方向和按主题整理的推荐索引，方便继续增删和维护自己的关注列表。

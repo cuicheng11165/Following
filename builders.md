@@ -1,10 +1,10 @@
 # Follow Builders — X Builders
 
-> Source: `follow-builders` skill · `config/default-sources.json` · `x_accounts`  
-> Total: **25** accounts  
+> Source: local watchlist for `summarize-x-builders` (seeded from follow-builders style)  
+> Total: **33** accounts  
 > Platform: [X (Twitter)](https://x.com)
 
-These are the AI builders tracked by the Follow Builders digest. The list is curated centrally and may update over time. Intros below are based on public bios and public profiles; roles can change.
+These are the AI builders tracked by the local X digest. Intros below are based on public bios and public profiles; roles can change.
 
 ---
 
@@ -37,23 +37,34 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | 23 | Aditya Agarwal | `@adityaag` | GP @ South Park Commons; ex-Dropbox CTO | https://x.com/adityaag |
 | 24 | Sam Altman | `@sama` | CEO @ OpenAI | https://x.com/sama |
 | 25 | Claude | `@claudeai` | Official Anthropic / Claude account | https://x.com/claudeai |
+| 26 | Simon Willison | `@simonw` | Tooling engineer; Datasette / Django; LLM eval culture | https://x.com/simonw |
+| 27 | Michael Truell | `@mntruell` | CEO @ Cursor | https://x.com/mntruell |
+| 28 | Theo | `@theo` | CEO @ t3.chat; DX / AI coding YouTuber | https://x.com/theo |
+| 29 | Paul Gauthier | `@paulgauthier` | Creator of Aider (open coding agent) | https://x.com/paulgauthier |
+| 30 | Karan | `@karan4d` | Co-founder @ NousResearch; Hermes agent | https://x.com/karan4d |
+| 31 | Lee Robinson | `@leerob` | Model behavior @ Cursor; ex-Vercel DX | https://x.com/leerob |
+| 32 | Dario Amodei | `@DarioAmodei` | CEO @ Anthropic | https://x.com/DarioAmodei |
+| 33 | Jim Fan | `@DrJimFan` | NVIDIA robotics / GEAR; physical AGI | https://x.com/DrJimFan |
 ---
 
 ## Who to follow for what
 
 | You want… | Prioritize |
 |-----------|------------|
-| Training / research intuition | Andrej Karpathy |
+| Training / research intuition | Andrej Karpathy, Jim Fan |
 | Industry direction & OpenAI | Sam Altman, Thibault Sottiaux |
+| Anthropic strategy | Dario Amodei, Alex Albert |
 | Google AI products & experiments | Josh Woodward, Google Labs |
 | Claude / Claude Code frontline | Boris Cherny, Cat Wu, Thariq, Alex Albert |
-| Coding-agent products | Amjad Masad, Ryo Lu, Boris / Cat |
-| Deploy & frontend AI apps | Guillermo Rauch |
+| Coding-agent products | Amjad Masad, Ryo Lu, Michael Truell, Boris / Cat, Paul Gauthier |
+| Open coding agents & tooling diaries | Simon Willison, Paul Gauthier |
+| Deploy & frontend AI apps | Guillermo Rauch, Lee Robinson |
+| DX / AI coding culture | Theo, Swyx |
 | Product craft & quality | Nan Yu |
 | Enterprise AI / content platforms | Aaron Levie |
 | Trends translated for practitioners | Swyx, Peter Yang, Dan Shipper |
 | Investing & industry maps | Matt Turck, Garry Tan, Nikunj Kothari, Aditya Agarwal |
-| Personal agent practice / OpenClaw | Peter Steinberger, Zara Zhang |
+| Personal agent practice / OpenClaw | Peter Steinberger, Zara Zhang, Karan |
 
 ---
 
@@ -334,11 +345,99 @@ These are the AI builders tracked by the Follow Builders digest. The list is cur
 | **Source type** | X account (`x_accounts`) |
 | **Intro** | Official Anthropic product account (not a person). Model launches, product features, and official announcements. Complements the individual Anthropic builders on this list. |
 
+### 26. Simon Willison
+
+| Field | Value |
+|-------|-------|
+| **Name** | Simon Willison |
+| **Handle** | `simonw` |
+| **Profile URL** | https://x.com/simonw |
+| **X bio (public)** | Creator @datasetteproj, co-creator Django. PSF board… |
+| **Source type** | X account (`x_accounts`) |
+| **Intro** | Tooling-first engineer (Datasette, Django co-creator). Publishes high-signal LLM evals, agent/tooling experiments, and long-form engineering notes—complements Karpathy’s capability demos with reproducible “how I tested it” culture (e.g. pelican-on-a-bicycle). |
+
+### 27. Michael Truell
+
+| Field | Value |
+|-------|-------|
+| **Name** | Michael Truell |
+| **Handle** | `mntruell` |
+| **Profile URL** | https://x.com/mntruell |
+| **X bio (public)** | Building @cursor_ai |
+| **Source type** | X account (`x_accounts`) |
+| **Intro** | CEO of Cursor. Product and company direction for the leading AI code editor—pairs with Ryo Lu (design) and Lee Robinson (model behavior) for a fuller Cursor surface. |
+
+### 28. Theo
+
+| Field | Value |
+|-------|-------|
+| **Name** | Theo (t3.gg) |
+| **Handle** | `theo` |
+| **Profile URL** | https://x.com/theo |
+| **X bio (public)** | Full time CEO @t3dotchat. Part time YouTuber, investor, and developer |
+| **Source type** | X account (`x_accounts`) |
+| **Intro** | High-frequency DX and AI coding commentator (t3.gg / t3.chat). Strong at developer-tool culture, shipping takes, and practical reactions to Claude Code / Cursor / agent tooling—complements Swyx’s conference-and-platform lens. |
+
+### 29. Paul Gauthier
+
+| Field | Value |
+|-------|-------|
+| **Name** | Paul Gauthier |
+| **Handle** | `paulgauthier` |
+| **Profile URL** | https://x.com/paulgauthier |
+| **X bio (public)** | Entrepreneur, investor, advisor |
+| **Source type** | X account (`x_accounts`) |
+| **Intro** | Creator of **Aider**, a widely used open-source terminal coding agent, and the Aider polyglot coding benchmarks. First-party open-agent builder signal next to Claude Code / Codex product voices. |
+
+### 30. Karan
+
+| Field | Value |
+|-------|-------|
+| **Name** | Karan |
+| **Handle** | `karan4d` |
+| **Profile URL** | https://x.com/karan4d |
+| **X bio (public)** | API rapper |
+| **Source type** | X account (`x_accounts`) |
+| **Intro** | Co-founder of Nous Research; associated with **Hermes** and open personal-agent work (self-improving skills/memory, open-source agent loops). Complements steipete’s OpenClaw line and Peter Yang’s interview coverage of open agents. |
+
+### 31. Lee Robinson
+
+| Field | Value |
+|-------|-------|
+| **Name** | Lee Robinson |
+| **Handle** | `leerob` |
+| **Profile URL** | https://x.com/leerob |
+| **X bio (public)** | Model behavior @cursor_ai. Helping train useful models. |
+| **Source type** | X account (`x_accounts`) |
+| **Intro** | Formerly the public face of Vercel DX/education; now focused on model behavior at Cursor. Bridges deploy/DX craft (Rauch ecosystem) and AI coding products—actionable engineering communication. |
+
+### 32. Dario Amodei
+
+| Field | Value |
+|-------|-------|
+| **Name** | Dario Amodei |
+| **Handle** | `DarioAmodei` |
+| **Profile URL** | https://x.com/DarioAmodei |
+| **X bio (public)** | Anthropic CEO. |
+| **Source type** | X account (`x_accounts`) |
+| **Intro** | CEO of Anthropic. Company strategy, safety/scaling philosophy, and lab-level narrative above the Claude Code engineering frontline (Boris, Cat, Thariq, Alex). |
+
+### 33. Jim Fan
+
+| Field | Value |
+|-------|-------|
+| **Name** | Jim Fan |
+| **Handle** | `DrJimFan` |
+| **Profile URL** | https://x.com/DrJimFan |
+| **X bio (public)** | NVIDIA Director of Robotics & Distinguished Scientist. Co-Lead of GEAR lab… Solving Physical AGI… Stanford Ph.D. OpenAI's 1st intern. |
+| **Source type** | X account (`x_accounts`) |
+| **Intro** | NVIDIA robotics / GEAR co-lead; research on embodied agents and physical AGI. Extends the list beyond software coding agents into world models and agents that act outside the browser—pairs with Karpathy’s research-builder pole. |
+
 ---
 
 ## Notes
 
-- Handles and names come from the skill’s `default-sources.json`; bios and job titles at digest time may also come from the central feed’s `bio` field when available.
-- Source list is managed centrally; local users cannot add/remove accounts (see [follow-builders](https://github.com/zarazhangrui/follow-builders)).
+- Overview table is the **source of truth** for `summarize-x-builders` (`parse_builders.py`).
 - Intros in this file are human-curated snapshots for local reference and may lag public role changes.
+- New handles without a cursor in `x-summary-state.json` get a **30-day backfill** on the next digest run.
 - Related files: [podcasts.md](./podcasts.md) · [blogs.md](./blogs.md)
