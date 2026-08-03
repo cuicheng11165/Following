@@ -1,12 +1,25 @@
 # Output template for one builder in **one run folder**
 
-Path:
+Path (only when **posts &gt; 0**):
 
 ```text
 x/runs/<run_id>/<handle>.md
 ```
 
 Each file is a **single-run snapshot** (one window). Do not stack multiple historical windows in the same file.
+
+## Zero posts — no file
+
+If the fetch window returned **0 posts**:
+
+- **Do not** write `x/runs/<run_id>/<handle>.md`
+- **Do not** create empty placeholders (“Nothing to summarize”)
+- Still update `x-summary-state.json` for that handle (`last_status: empty`, advance `last_fetched_at`)
+- List the handle under **No updates** in the run `README.md` and the user-facing final report
+
+---
+
+## With posts — full summary
 
 ```markdown
 # <Display Name> (@<handle>)
@@ -78,21 +91,6 @@ Each file is a **single-run snapshot** (one window). Do not stack multiple histo
 <1 short paragraph>
 ```
 
-### Empty window
-
-```markdown
-# <Display Name> (@<handle>)
-
-| Field | Value |
-|-------|-------|
-| Run ID | <run_id> |
-
-## Window: <YYYY-MM-DD> → <YYYY-MM-DD>
-
-- **Posts in window (fetched):** 0
-- No public posts returned in this range. Nothing to summarize.
-```
-
 ---
 
 # Run folder index: `x/runs/<run_id>/README.md`
@@ -103,12 +101,25 @@ Each file is a **single-run snapshot** (one window). Do not stack multiple histo
 | Field | Value |
 |-------|-------|
 | **Fetched at** | ... |
-| **Builders** | n success / m empty / k failed |
+| **With reports** | n (posts &gt; 0, file written) |
+| **No updates** | m (zero posts, state only — no file) |
+| **Failed** | k (cursor not advanced) |
+
+## With updates
 
 | Handle | Name | Posts | Notables | Headline | File |
 |--------|------|-------|----------|----------|------|
 | karpathy | ... | 9 | 5 | ... | [karpathy.md](./karpathy.md) |
+
+## No updates (cursor advanced, no report)
+
+| Handle | Name | last_fetched_at |
+|--------|------|-----------------|
+| claudeai | Claude | 2026-08-03T02:48:02Z |
+| _catwu | Cat Wu | 2026-08-03T02:48:02Z |
 ```
+
+Only list handles that were successfully processed with zero posts. Failed handles go in a separate **Failed** section (or the final user report), and their cursors stay unchanged.
 
 ---
 
@@ -118,6 +129,8 @@ Each file is a **single-run snapshot** (one window). Do not stack multiple histo
 # X Builders 运行目录
 
 每次 `/summarize-x-builders` 写入独立文件夹 `x/runs/<运行时间UTC>/`，避免单文件无限追加。
+
+仅有新帖的 builder 会生成 `<handle>.md`；无更新的人只推进 `x-summary-state.json` 游标。
 
 | 最新 | [./latest](./latest) → `runs/<run_id>/` |
 |------|----------------------------------------|

@@ -30,11 +30,12 @@ You produce **per-builder summaries** of recent X posts.
 1. **Do not invent posts.** Only summarize content returned by X tools.
 2. **Every claim that refers to a post should keep a post URL** when the tool provides one.
 3. Work in the **current workspace root** (contains `builders.md` and `x/`).
-4. Prefer tools over guessing. Zero posts in-range → still write a short empty-window note.
+4. Prefer tools over guessing. **Zero posts in-range → do not write `<handle>.md`.** Only advance that handle’s cursor in `x-summary-state.json` and note them under “no updates” in the run index / final report.
 5. **One run, one output folder.** Do not prepend historical windows into a single file.
-6. **Only advance a handle’s `last_fetched_at` after that handle succeeds** (file written in this run’s folder). Failures leave that handle’s cursor unchanged.
+6. **Only advance a handle’s `last_fetched_at` after that handle is processed successfully** (posts → summary file written; zero posts → state-only update). Failures leave that handle’s cursor unchanged.
 7. Prefer **updating state after each successful builder** (or small batch).
 8. Keep **`x/README.md` as a run index only** (list of runs + link to latest), not a wall of every handle forever.
+9. **Only people with posts get report files.** Empty windows must not produce placeholder markdown.
 
 ## Paths (relative to workspace root)
 
@@ -42,8 +43,8 @@ You produce **per-builder summaries** of recent X posts.
 |------|---------|
 | `builders.md` | Source list of builders (handles) |
 | `x/runs/<run_id>/` | **This run’s** outputs only (one folder per run) |
-| `x/runs/<run_id>/<handle>.md` | Per-builder summary for this run |
-| `x/runs/<run_id>/README.md` | Index for this run only |
+| `x/runs/<run_id>/<handle>.md` | Per-builder summary **only if posts &gt; 0** in this window |
+| `x/runs/<run_id>/README.md` | Index for this run (with posts + no-update list) |
 | `x/README.md` | Catalog of runs (latest first); not per-builder content |
 | `x/latest` | Symlink (or text pointer) to the newest `x/runs/<run_id>/` |
 | `x-summary-state.json` | Per-builder cursors + last run id |
@@ -160,7 +161,8 @@ Rules:
 | `last_run_id` / `last_run_dir` | global | Newest completed run folder |
 | `retain_runs` | global | How many run folders to keep (default 10) |
 | `builders.<handle>.last_fetched_at` | per person | Next run’s `window_start` for this handle |
-| `builders.<handle>.last_run_id` | per person | Which run last successfully wrote this handle |
+| `builders.<handle>.last_run_id` | per person | Which run last successfully **processed** this handle (wrote a summary **or** recorded empty with cursor advance) |
+| `builders.<handle>.last_status` | per person | `ok` = posts + file; `empty` = zero posts, state only; never write a file for `empty` |
 
 ### Handle key matching
 
@@ -227,11 +229,19 @@ Tell the user:
 
 Same as before: `x_keyword_search` with each builder’s window, Latest, limit 10, paginate, cap 50.
 
-Empty → write empty file in **this run folder** still counts as success for cursor.
+| Result | File? | State / cursor |
+|--------|-------|----------------|
+| **Posts &gt; 0** | Write `x/runs/<run_id>/<handle>.md` | `last_status: ok`, advance `last_fetched_at` |
+| **Zero posts** | **Do not write** `<handle>.md` | `last_status: empty`, still advance `last_fetched_at` to `window_end` |
+| **Fetch/error** | No file | **Do not** advance cursor |
 
-### Step 4 — Summarize each builder into **this run folder only**
+Empty is a **successful** process for cursor purposes; it is **not** a reason to create a report.
 
-Write:
+### Step 4 — Summarize **only builders with posts** into this run folder
+
+**Skip Step 4 entirely when `posts_fetched == 0`.** Go straight to Step 5 state update (`empty`).
+
+When posts exist, write:
 
 ```text
 x/runs/<run_id>/<handle>.md
@@ -242,6 +252,8 @@ Canonical handle for filename (e.g. `AmandaAskell.md`, `_catwu.md`).
 Follow `references/output-template.md`.
 
 **Each file is a single-run snapshot** (one window only). Do **not** prepend older windows into the same file. Historical content lives in older `x/runs/<other_id>/` folders.
+
+**Never** create empty-window placeholder files like “No public posts returned…”.
 
 #### Summary quality bar
 
@@ -270,9 +282,9 @@ Optional: `x/runs/<run_id>/posts/<post_id>.md`.
 
 Fallback if thread fetch fails twice: label `（仅列表摘要，thread 拉取失败）`.
 
-### Step 5 — Update state **per successful handle**
+### Step 5 — Update state **per successfully processed handle**
 
-After each success:
+#### A) Had posts → wrote summary (`ok`)
 
 ```json
 {
@@ -286,8 +298,25 @@ After each success:
 }
 ```
 
-Also set global `last_run_id`, `last_run_dir`, `last_run_at` as you go or at end.  
-`last_status`: `empty` for zero posts. **Do not** advance cursor on error.
+#### B) Zero posts → state only (`empty`)
+
+```json
+{
+  "name": "<display name>",
+  "last_fetched_at": "<window_end ISO UTC>",
+  "last_window_start": "<window_start ISO>",
+  "last_window_end": "<window_end ISO>",
+  "last_posts_fetched": 0,
+  "last_status": "empty",
+  "last_run_id": "<run_id>"
+}
+```
+
+- **Do not** create `x/runs/<run_id>/<handle>.md` for (B).
+- **Do** advance the cursor so the next run does not re-scan the same empty window.
+- **Do not** advance cursor on fetch/tool errors.
+
+Also set global `last_run_id`, `last_run_dir`, `last_run_at` as you go or at end.
 
 ### Step 6 — Run index + root catalog + latest pointer
 
@@ -296,7 +325,8 @@ Also set global `last_run_id`, `last_run_dir`, `last_run_at` as you go or at end
 Only this run:
 
 - run_id, fetched at, mode notes  
-- Table: handle | posts | notables | headline | file link  
+- **With updates:** table handle | posts | notables | headline | file link  
+- **No updates:** compact list of handles (no file column) — cursor advanced, no report  
 
 #### B) `x/README.md` (run catalog)
 
@@ -338,7 +368,8 @@ Update `x/README.md` catalog after prune. Fix `x/latest` if needed.
 
 - `run_id` and path `x/runs/<run_id>/`
 - Incremental vs backfill counts
-- Success / empty / failed
+- **With reports** (posts + file) / **no updates** (empty, state only) / **failed**
+- List no-update handles briefly (cursor advanced, no files)
 - Failed handles (cursor not advanced)
 - How many old runs pruned
 - Point to `x/latest` for reading
@@ -348,7 +379,8 @@ Update `x/README.md` catalog after prune. Fix `x/latest` if needed.
 ## Single-handle or custom window
 
 - Still create (or reuse current job’s) `run_id` folder if this is part of a full run.
-- One-off single handle: `x/runs/<run_id>/<handle>.md` is fine; advance only that handle’s cursor.
+- One-off single handle **with posts:** `x/runs/<run_id>/<handle>.md`; advance that handle’s cursor.
+- One-off single handle **with zero posts:** no file; state-only cursor advance.
 - Do not write back into a shared forever file.
 
 ---
@@ -381,7 +413,9 @@ Related: **`summarize-x-post`** for every Notable item.
 | No X tools | Stop |
 | Cannot create `x/runs/<run_id>/` | Stop |
 | New handle | 30-day backfill for that handle only |
-| Partial crash | Finished handles keep cursors + files in run folder |
+| **Zero posts in window** | **No `<handle>.md`**; advance cursor; `last_status: empty`; list under no-updates |
+| All builders empty | Run folder may only have `README.md`; still a valid run (state advanced for everyone empty) |
+| Partial crash | Finished handles keep cursors (+ files only if they had posts) |
 | Rate limits | Smaller batches; failed handles keep old cursors |
 | Legacy flat `x/*.md` | Migrate into one historical run folder first |
 
@@ -391,11 +425,12 @@ Related: **`summarize-x-post`** for every Notable item.
 
 - [ ] `run_id` created; all outputs under `x/runs/<run_id>/` only  
 - [ ] Builders parsed; per-builder windows resolved  
-- [ ] Posts listed (cap 50); notables via `summarize-x-post` / `x_thread_fetch`  
+- [ ] Posts listed (cap 50); notables via `summarize-x-post` / `x_thread_fetch` **only for handles with posts**  
+- [ ] **No empty-window `<handle>.md` files** (zero posts → state only)  
 - [ ] No flat forever-file under `x/<handle>.md` for this run  
-- [ ] `x/runs/<run_id>/README.md` written  
+- [ ] `x/runs/<run_id>/README.md` written (with-updates table + no-updates list)  
 - [ ] `x/README.md` is a **run catalog**  
 - [ ] `x/latest` points at this run  
 - [ ] Old runs pruned (default keep 10) unless disabled  
-- [ ] Per-handle `last_fetched_at` updated only on success  
-- [ ] User reported path + prune summary  
+- [ ] Per-handle `last_fetched_at` updated on success (`ok` or `empty`); not on error  
+- [ ] User reported path + prune summary + empty-handle count  

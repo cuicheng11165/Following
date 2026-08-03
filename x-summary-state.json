@@ -2,235 +2,235 @@
   "version": 2,
   "builders_file": "builders.md",
   "output_dir": "x/runs",
-  "last_run_at": "2026-08-01T13:16:55Z",
-  "last_run_id": "2026-08-01T131655Z",
-  "last_run_dir": "x/runs/2026-08-01T131655Z",
+  "last_run_at": "2026-08-03T02:48:02Z",
+  "last_run_id": "2026-08-03T024802Z",
+  "last_run_dir": "x/runs/2026-08-03T024802Z",
   "retain_runs": 10,
   "builders": {
     "karpathy": {
       "name": "Andrej Karpathy",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
-      "last_posts_fetched": 0,
-      "last_status": "empty",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
+      "last_posts_fetched": 8,
+      "last_status": "ok",
+      "last_run_id": "2026-08-03T024802Z"
     },
     "swyx": {
       "name": "Swyx",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
       "last_posts_fetched": 10,
       "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     },
     "joshwoodward": {
       "name": "Josh Woodward",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
-      "last_posts_fetched": 9,
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
+      "last_posts_fetched": 1,
       "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     },
     "bcherny": {
       "name": "Boris Cherny",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
-      "last_posts_fetched": 0,
-      "last_status": "empty",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
+      "last_posts_fetched": 2,
+      "last_status": "ok",
+      "last_run_id": "2026-08-03T024802Z"
     },
     "thsottiaux": {
       "name": "Thibault Sottiaux",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
       "last_posts_fetched": 10,
       "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     },
     "petergyang": {
       "name": "Peter Yang",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
       "last_posts_fetched": 10,
       "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     },
     "thenanyu": {
       "name": "Nan Yu",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
       "last_posts_fetched": 10,
       "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     },
     "realmadhuguru": {
       "name": "Madhu Guru",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
-      "last_posts_fetched": 1,
-      "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
+      "last_posts_fetched": 0,
+      "last_status": "empty",
+      "last_run_id": "2026-08-03T024802Z"
     },
     "_catwu": {
       "name": "Cat Wu",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
       "last_posts_fetched": 0,
       "last_status": "empty",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     },
     "trq212": {
       "name": "Thariq",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
-      "last_posts_fetched": 8,
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
+      "last_posts_fetched": 2,
       "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     },
     "GoogleLabs": {
       "name": "Google Labs",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
-      "last_posts_fetched": 2,
-      "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
+      "last_posts_fetched": 0,
+      "last_status": "empty",
+      "last_run_id": "2026-08-03T024802Z"
     },
     "amasad": {
       "name": "Amjad Masad",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
       "last_posts_fetched": 10,
       "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     },
     "rauchg": {
       "name": "Guillermo Rauch",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
       "last_posts_fetched": 10,
       "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     },
     "alexalbert__": {
       "name": "Alex Albert",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
       "last_posts_fetched": 0,
       "last_status": "empty",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     },
     "levie": {
       "name": "Aaron Levie",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
-      "last_posts_fetched": 8,
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
+      "last_posts_fetched": 3,
       "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     },
     "ryolu_": {
       "name": "Ryo Lu",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
-      "last_posts_fetched": 2,
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
+      "last_posts_fetched": 5,
       "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     },
     "garrytan": {
       "name": "Garry Tan",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
       "last_posts_fetched": 10,
       "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     },
     "mattturck": {
       "name": "Matt Turck",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
-      "last_posts_fetched": 10,
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
+      "last_posts_fetched": 3,
       "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     },
     "zarazhangrui": {
       "name": "Zara Zhang",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
-      "last_posts_fetched": 6,
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
+      "last_posts_fetched": 4,
       "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     },
     "nikunj": {
       "name": "Nikunj Kothari",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
       "last_posts_fetched": 10,
       "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     },
     "steipete": {
       "name": "Peter Steinberger",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
       "last_posts_fetched": 10,
       "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     },
     "danshipper": {
       "name": "Dan Shipper",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
       "last_posts_fetched": 10,
       "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     },
     "adityaag": {
       "name": "Aditya Agarwal",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
-      "last_posts_fetched": 10,
-      "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
+      "last_posts_fetched": 0,
+      "last_status": "empty",
+      "last_run_id": "2026-08-03T024802Z"
     },
     "sama": {
       "name": "Sam Altman",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
-      "last_posts_fetched": 8,
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
+      "last_posts_fetched": 1,
       "last_status": "ok",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     },
     "claudeai": {
       "name": "Claude",
-      "last_fetched_at": "2026-08-01T13:16:55Z",
-      "last_window_start": "2026-07-29T03:32:35Z",
-      "last_window_end": "2026-08-01T13:16:55Z",
+      "last_fetched_at": "2026-08-03T02:48:02Z",
+      "last_window_start": "2026-08-01T13:16:55Z",
+      "last_window_end": "2026-08-03T02:48:02Z",
       "last_posts_fetched": 0,
       "last_status": "empty",
-      "last_run_id": "2026-08-01T131655Z"
+      "last_run_id": "2026-08-03T024802Z"
     }
   }
 }
