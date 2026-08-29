@@ -4,13 +4,14 @@
 
 仅有新帖的 builder 会生成 `<handle>.md`；无更新的人只推进 `x-summary-state.json` 游标。
 
-| 最新 | [./latest](./latest) → `runs/2026-08-22T174203Z/` |
+| 最新 | [./latest](./latest) → `runs/2026-08-29T145528Z/` |
 |------|----------------------------------------|
 
 ## 历史运行（新 → 旧）
 
 | Run ID | 路径 | 说明 |
 |--------|------|------|
+| 2026-08-29T145528Z | [runs/2026-08-29T145528Z/](./runs/2026-08-29T145528Z/) | Incremental since 2026-08-22; OpenAI×Cursor trust split, Grok Bot GA, Cowork browser, OpenAI chip, Expert Intelligence |
 | 2026-08-22T174203Z | [runs/2026-08-22T174203Z/](./runs/2026-08-22T174203Z/) | Incremental since 2026-08-13; OpenAI RL pause, Cursor×SpaceX, Codex 20M, Mythos Security, T-Rex, Dario vs Gavin |
 | 2026-08-13T041940Z | [runs/2026-08-13T041940Z/](./runs/2026-08-13T041940Z/) | Incremental since 2026-08-05; Gemini 1B, Codex 15M/Linux, Claude watermark, Grok 4.6 |
 | 2026-08-05T040829Z | [runs/2026-08-05T040829Z/](./runs/2026-08-05T040829Z/) | Incremental + 8 new-handle backfills; Tibo Codex/Luna, sama optimist, RoboTTT, MoK, Grok 4.5 |
