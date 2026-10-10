@@ -4,13 +4,15 @@
 
 仅有新帖的 builder 会生成 `<handle>.md`；无更新的人只推进 `x-summary-state.json` 游标。
 
-| 最新 | [./latest](./latest) → `runs/2026-08-29T145528Z/` |
+| 最新 | [./latest](./latest) → `runs/2026-10-10T132535Z/` |
 |------|----------------------------------------|
 
 ## 历史运行（新 → 旧）
 
 | Run ID | 路径 | 说明 |
 |--------|------|------|
+| 2026-10-10T132535Z | [runs/2026-10-10T132535Z/](./runs/2026-10-10T132535Z/) | Incremental since 2026-09-06; Gemini 4 Argon, Haiku 5.5, GPT-6 for ChatGPT, Dots, Playground, Grok 4.7 |
+| 2026-09-06T143124Z | [runs/2026-09-06T143124Z/](./runs/2026-09-06T143124Z/) | Incremental since 2026-08-29; GPT-6 Astra GA, Fable 5.1, WebMCP, Grok Bot Enterprise, Function Hooks |
 | 2026-08-29T145528Z | [runs/2026-08-29T145528Z/](./runs/2026-08-29T145528Z/) | Incremental since 2026-08-22; OpenAI×Cursor trust split, Grok Bot GA, Cowork browser, OpenAI chip, Expert Intelligence |
 | 2026-08-22T174203Z | [runs/2026-08-22T174203Z/](./runs/2026-08-22T174203Z/) | Incremental since 2026-08-13; OpenAI RL pause, Cursor×SpaceX, Codex 20M, Mythos Security, T-Rex, Dario vs Gavin |
 | 2026-08-13T041940Z | [runs/2026-08-13T041940Z/](./runs/2026-08-13T041940Z/) | Incremental since 2026-08-05; Gemini 1B, Codex 15M/Linux, Claude watermark, Grok 4.6 |
